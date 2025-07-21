@@ -1,0 +1,120 @@
+<script lang="ts" setup>
+import MainWrapper from "@/components/MainWrapper.vue";
+import { computed } from "@vue/reactivity";
+import { onMounted, onUnmounted, ref } from "vue";
+
+const projects = [
+  { id: 1, title: "Lorum", img: "project-1.jpg" },
+  { id: 2, title: "Ipsum", img: "project-2.jpg" },
+  { id: 3, title: "Dolores", img: "project-3.jpg" },
+  { id: 4, title: "Amet", img: "project-4.jpg" },
+];
+const currentIndex = ref(0);
+const currentProject = computed(() => {
+  return projects[currentIndex.value];
+});
+
+const promoRef = ref();
+const sectionHeight = ref("auto");
+const sectionLeft = ref("0px");
+
+onMounted(() => {
+  setSectionOffsets();
+
+  window.addEventListener("resize", setSectionOffsets);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("resize", setSectionOffsets);
+});
+
+function setSectionOffsets() {
+  sectionHeight.value = `${window.innerHeight - getHeaderHeight()}px`;
+  sectionLeft.value = `${getLogoLeft()}px`;
+}
+
+function getLogoLeft() {
+  const logo = document.getElementById("logo-js");
+  console.log(logo?.getBoundingClientRect().left);
+
+  return logo?.getBoundingClientRect().left || 0;
+}
+
+function getHeaderHeight() {
+  const header = document.getElementById("header-js");
+  return header?.offsetHeight || 0;
+}
+
+function decreaseIndex() {
+  currentIndex.value = currentIndex.value > 0 ? currentIndex.value - 1 : 0;
+}
+
+function increaseIndex() {
+  currentIndex.value = currentIndex.value < 3 ? currentIndex.value + 1 : 3;
+}
+</script>
+
+<template>
+  <Transition name="slide-fade">
+    <section
+      :key="currentIndex"
+      class="py-8"
+      ref="promoRef"
+      :style="{ height: sectionHeight, marginLeft: sectionLeft }"
+    >
+      <MainWrapper class="!px-0 grid grid-cols-[400px_max-content]">
+        <div class="grid grid-rows-2">
+          <div class="flex flex-col justify-between row-start-2 h-full">
+            <div>
+              <p class="uppercase text-zinc-300 font-extralight text-4xl">
+                Project
+              </p>
+              <p class="font-semibold text-4xl">{{ currentProject.title }}</p>
+            </div>
+
+            <div class="flex gap-4">
+              <button @click="decreaseIndex">
+                <i class="fa-solid fa-arrow-left"></i>
+              </button>
+              <button @click="increaseIndex">
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+
+            <div class="flex gap-4 text-zinc-300 font-extralight">
+              <span>{{ currentProject.id }} </span>
+              <span>/</span>
+              <span>{{ projects.length }}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative h-[70vh] aspect-[7/8] flex">
+          <img :src="`${currentProject.img}`" :alt="currentProject.title" />
+          <button
+            class="shadow-[-1px_1px_1px_white] absolute bottom-0 left-0 bg-white px-8 py-2 uppercase flex gap-4 items-center"
+          >
+            <span>К проекту</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </MainWrapper>
+    </section>
+  </Transition>
+</template>
+
+<style lang="css">
+.slide-fade-enter-active {
+  transition: all 0.2s ease-out;
+}
+
+.slide-fade-leave-active {
+  transition: all 0.5s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  transform: translateX(20px);
+  opacity: 0;
+}
+</style>
