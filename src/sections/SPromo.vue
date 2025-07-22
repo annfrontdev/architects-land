@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import MainWrapper from "@/components/MainWrapper.vue";
+import MainButton from "@/elements/MainButton.vue";
 import { computed } from "@vue/reactivity";
 import { onMounted, onUnmounted, ref } from "vue";
 
@@ -94,12 +95,9 @@ function increaseIndex() {
       <Transition name="slide-fade" mode="out-in">
         <div :key="currentIndex" class="relative h-[70vh] aspect-[7/8] flex">
           <img :src="`${currentProject.img}`" :alt="currentProject.title" />
-          <button
-            class="shadow-[-1px_1px_1px_white] absolute bottom-0 left-0 bg-white px-8 py-2 uppercase flex gap-4 items-center"
-          >
+          <MainButton class="absolute bottom-0 left-0">
             <span>К проекту</span>
-            <i class="fa-solid fa-arrow-right"></i>
-          </button>
+          </MainButton>
         </div>
       </Transition>
     </MainWrapper>
