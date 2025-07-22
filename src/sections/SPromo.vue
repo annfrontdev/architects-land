@@ -3,11 +3,11 @@ import MainWrapper from "@/components/MainWrapper.vue";
 import { computed } from "@vue/reactivity";
 import { onMounted, onUnmounted, ref } from "vue";
 
+// to-do  jpg to webp
 const projects = [
-  { id: 1, title: "Lorum", img: "project-1.jpg" },
-  { id: 2, title: "Ipsum", img: "project-2.jpg" },
-  { id: 3, title: "Dolores", img: "project-3.jpg" },
-  { id: 4, title: "Amet", img: "project-4.jpg" },
+  { id: 1, title: "Willa", img: "project-1.jpg" },
+  { id: 2, title: "Coffee shop", img: "project-2.jpg" },
+  { id: 3, title: "Museum", img: "project-3.jpg" },
 ];
 const currentIndex = ref(0);
 const currentProject = computed(() => {
@@ -55,41 +55,44 @@ function increaseIndex() {
 </script>
 
 <template>
-  <Transition name="slide-fade">
-    <section
-      :key="currentIndex"
-      class="py-8"
-      ref="promoRef"
-      :style="{ height: sectionHeight, marginLeft: sectionLeft }"
-    >
-      <MainWrapper class="!px-0 grid grid-cols-[400px_max-content]">
-        <div class="grid grid-rows-2">
-          <div class="flex flex-col justify-between row-start-2 h-full">
-            <div>
-              <p class="uppercase text-zinc-300 font-extralight text-4xl">
-                Project
+  <section
+    class="py-8"
+    ref="promoRef"
+    :style="{ height: sectionHeight, marginLeft: sectionLeft }"
+  >
+    <MainWrapper class="!px-0 grid grid-cols-[400px_max-content]">
+      <div class="grid grid-rows-2">
+        <div class="flex flex-col justify-between row-start-2 h-full">
+          <div>
+            <p class="uppercase text-zinc-300 font-extralight text-4xl">
+              Project
+            </p>
+            <Transition name="jump-fade" mode="out-in">
+              <p :key="currentIndex" class="font-semibold text-4xl">
+                {{ currentProject.title }}
               </p>
-              <p class="font-semibold text-4xl">{{ currentProject.title }}</p>
-            </div>
+            </Transition>
+          </div>
 
-            <div class="flex gap-4">
-              <button @click="decreaseIndex">
-                <i class="fa-solid fa-arrow-left"></i>
-              </button>
-              <button @click="increaseIndex">
-                <i class="fa-solid fa-arrow-right"></i>
-              </button>
-            </div>
+          <div class="flex gap-4">
+            <button @click="decreaseIndex">
+              <i class="fa-solid fa-arrow-left"></i>
+            </button>
+            <button @click="increaseIndex">
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
 
-            <div class="flex gap-4 text-zinc-300 font-extralight">
-              <span>{{ currentProject.id }} </span>
-              <span>/</span>
-              <span>{{ projects.length }}</span>
-            </div>
+          <div class="flex gap-4 text-zinc-300 font-extralight">
+            <span>{{ currentProject.id }} </span>
+            <span>/</span>
+            <span>{{ projects.length }}</span>
           </div>
         </div>
+      </div>
 
-        <div class="relative h-[70vh] aspect-[7/8] flex">
+      <Transition name="slide-fade" mode="out-in">
+        <div :key="currentIndex" class="relative h-[70vh] aspect-[7/8] flex">
           <img :src="`${currentProject.img}`" :alt="currentProject.title" />
           <button
             class="shadow-[-1px_1px_1px_white] absolute bottom-0 left-0 bg-white px-8 py-2 uppercase flex gap-4 items-center"
@@ -98,9 +101,9 @@ function increaseIndex() {
             <i class="fa-solid fa-arrow-right"></i>
           </button>
         </div>
-      </MainWrapper>
-    </section>
-  </Transition>
+      </Transition>
+    </MainWrapper>
+  </section>
 </template>
 
 <style lang="css">
@@ -115,6 +118,21 @@ function increaseIndex() {
 .slide-fade-enter-from,
 .slide-fade-leave-to {
   transform: translateX(20px);
+  opacity: 0;
+}
+
+/* to-do  */
+.jump-fade-enter-active {
+  transition: all 0.2s ease-out;
+}
+
+.jump-fade-leave-active {
+  transition: all 0.5s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.jump-fade-enter-from,
+.jump-fade-leave-to {
+  transform: translateY(20px);
   opacity: 0;
 }
 </style>
