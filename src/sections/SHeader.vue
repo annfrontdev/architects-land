@@ -5,9 +5,9 @@ import MainWrapper from "@/components/MainWrapper.vue";
 </script>
 
 <template>
-  <header class="py-4" id="header-js">
+  <header class="pt-8" id="header-js">
     <MainWrapper
-      class="grid grid-cols-[400px__max-content] items-center justify-center"
+      class="grid grid-cols-[400px__max-content] items-center"
     >
       <LogoIcon width="70" id="logo-js" />
 

@@ -2,15 +2,15 @@
 import MainLayout from "@/layouts/MainLayout.vue";
 import SPromo from "@/sections/SPromo.vue";
 import SAbout from "./sections/SAbout.vue";
+import SFocus from "./sections/SFocus.vue";
 </script>
 
 <template>
   <MainLayout>
     <SPromo />
     <SAbout />
-    <!-- focus  -->
+    <SFocus />
     <!-- projects  -->
     <!-- contact us  -->
-    <!-- footer  -->
   </MainLayout>
 </template>

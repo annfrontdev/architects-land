@@ -17,7 +17,6 @@ const currentProject = computed(() => {
 
 const promoRef = ref();
 const sectionHeight = ref("auto");
-const sectionLeft = ref("0px");
 
 onMounted(() => {
   setSectionOffsets();
@@ -31,14 +30,6 @@ onUnmounted(() => {
 
 function setSectionOffsets() {
   sectionHeight.value = `${window.innerHeight - getHeaderHeight()}px`;
-  sectionLeft.value = `${getLogoLeft()}px`;
-}
-
-function getLogoLeft() {
-  const logo = document.getElementById("logo-js");
-  console.log(logo?.getBoundingClientRect().left);
-
-  return logo?.getBoundingClientRect().left || 0;
 }
 
 function getHeaderHeight() {
@@ -53,15 +44,13 @@ function decreaseIndex() {
 function increaseIndex() {
   currentIndex.value = currentIndex.value < 3 ? currentIndex.value + 1 : 3;
 }
+
+const styles = computed(() => ({ height: sectionHeight.value }));
 </script>
 
 <template>
-  <section
-    class="py-8"
-    ref="promoRef"
-    :style="{ height: sectionHeight, marginLeft: sectionLeft }"
-  >
-    <MainWrapper class="!px-0 grid grid-cols-[400px_max-content]">
+  <section class="py-8" ref="promoRef" :style="styles">
+    <MainWrapper class="grid grid-cols-[400px_max-content]">
       <div class="grid grid-rows-2">
         <div class="flex flex-col justify-between row-start-2 h-full">
           <div>

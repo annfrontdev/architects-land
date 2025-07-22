@@ -7,7 +7,7 @@ import MainButton from "@/elements/MainButton.vue";
   <section>
     <MainWrapper>
       <div
-        class="bg-zinc-50 p-8 my-16 grid grid-cols-[max-content_500px] relative justify-center gap-8 max-w-[1170px] max-h-[435px] mx-auto"
+        class="bg-zinc-50 p-8 my-16 grid grid-cols-[max-content_500px] relative justify-center gap-8 max-h-[435px] mx-auto"
       >
         <div class="grid grid-cols-2 grid-rows-[max-content_max-content] gap-4">
           <img
