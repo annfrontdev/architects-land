@@ -20,7 +20,7 @@ const projects = [
           v-for="(p, i) in projects"
           :key="i"
           :src="p.link"
-          alt="Проект"
+          :alt="p.alt"
           height="255"
         />
       </div>

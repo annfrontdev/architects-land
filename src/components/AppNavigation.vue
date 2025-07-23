@@ -2,8 +2,6 @@
 import { type NavLink } from "@/model/types";
 
 const appNav: NavLink[] = [
-  { label: "Главная", link: "#main" },
-  { label: "Галерея", link: "#gallery" },
   { label: "Проекты", link: "#projects" },
   { label: "Сертификаты", link: "#certifications" },
   { label: "Контакты", link: "#contacts" },
@@ -12,8 +10,12 @@ const appNav: NavLink[] = [
 
 <template>
   <ul>
-    <li v-for="link in appNav">
+    <li><RouterLink to="/">Главная</RouterLink></li>
+    <li v-for="(link, i) in appNav" :class="`order-${i}`">
       <a :href="link.link">{{ link.label }}</a>
+    </li>
+    <li class="order-1">
+      <RouterLink to="/gallery">Галерея</RouterLink>
     </li>
   </ul>
 </template>

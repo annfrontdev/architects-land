@@ -1,18 +1,20 @@
 <script lang="ts" setup>
 import MainWrapper from "@/components/MainWrapper.vue";
+import EArrows from "@/elements/EArrows.vue";
 import MainButton from "@/elements/MainButton.vue";
+import SlideChanger from "@/elements/SlideChanger.vue";
 import { computed } from "@vue/reactivity";
 import { onMounted, onUnmounted, ref } from "vue";
 
 // to-do  jpg to webp
-const projects = [
+const PROJECTS = [
   { id: 1, title: "Willa", img: "project-1.jpg" },
   { id: 2, title: "Coffee shop", img: "project-2.jpg" },
   { id: 3, title: "Museum", img: "project-3.jpg" },
 ];
 const currentIndex = ref(0);
 const currentProject = computed(() => {
-  return projects[currentIndex.value];
+  return PROJECTS[currentIndex.value];
 });
 
 const promoRef = ref();
@@ -42,7 +44,7 @@ function decreaseIndex() {
 }
 
 function increaseIndex() {
-  currentIndex.value = currentIndex.value < 3 ? currentIndex.value + 1 : 3;
+  currentIndex.value = currentIndex.value < PROJECTS.length ? currentIndex.value + 1 : PROJECTS.length;
 }
 
 const styles = computed(() => ({ height: sectionHeight.value }));
@@ -64,20 +66,15 @@ const styles = computed(() => ({ height: sectionHeight.value }));
             </Transition>
           </div>
 
-          <div class="flex gap-4">
-            <button @click="decreaseIndex">
-              <i class="fa-solid fa-arrow-left"></i>
-            </button>
-            <button @click="increaseIndex">
-              <i class="fa-solid fa-arrow-right"></i>
-            </button>
-          </div>
+          <EArrows
+            @decrease-index="decreaseIndex"
+            @increase-index="increaseIndex"
+          />
 
-          <div class="flex gap-4 text-zinc-300 font-extralight">
-            <span>{{ currentProject.id }} </span>
-            <span>/</span>
-            <span>{{ projects.length }}</span>
-          </div>
+          <SlideChanger>
+            <template #index>{{ currentProject.id }}</template>
+            <template #quantity>{{ PROJECTS.length }}</template>
+          </SlideChanger>
         </div>
       </div>
 
