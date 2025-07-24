@@ -5,6 +5,7 @@ import MainButton from "@/elements/MainButton.vue";
 import SlideChanger from "@/elements/SlideChanger.vue";
 import { computed } from "@vue/reactivity";
 import { onMounted, onUnmounted, ref } from "vue";
+import { useSlider } from "@/composables/useSlider";
 
 // to-do  jpg to webp
 const PROJECTS = [
@@ -12,13 +13,19 @@ const PROJECTS = [
   { id: 2, title: "Coffee shop", img: "project-2.jpg" },
   { id: 3, title: "Museum", img: "project-3.jpg" },
 ];
-const currentIndex = ref(0);
+const START_ID = 0;
+const { currentIndex, decreaseIndex, increaseIndex } = useSlider(
+  PROJECTS.length,
+  START_ID
+);
+
 const currentProject = computed(() => {
   return PROJECTS[currentIndex.value];
 });
 
 const promoRef = ref();
 const sectionHeight = ref("auto");
+const styles = computed(() => ({ height: sectionHeight.value }));
 
 onMounted(() => {
   setSectionOffsets();
@@ -38,16 +45,6 @@ function getHeaderHeight() {
   const header = document.getElementById("header-js");
   return header?.offsetHeight || 0;
 }
-
-function decreaseIndex() {
-  currentIndex.value = currentIndex.value > 0 ? currentIndex.value - 1 : 0;
-}
-
-function increaseIndex() {
-  currentIndex.value = currentIndex.value < PROJECTS.length ? currentIndex.value + 1 : PROJECTS.length;
-}
-
-const styles = computed(() => ({ height: sectionHeight.value }));
 </script>
 
 <template>
@@ -105,7 +102,6 @@ const styles = computed(() => ({ height: sectionHeight.value }));
   opacity: 0;
 }
 
-/* to-do  */
 .jump-fade-enter-active {
   transition: all 0.2s ease-out;
 }
@@ -114,7 +110,11 @@ const styles = computed(() => ({ height: sectionHeight.value }));
   transition: all 0.5s cubic-bezier(1, 0.5, 0.8, 1);
 }
 
-.jump-fade-enter-from,
+.jump-fade-enter-from {
+  transform: translateY(-20px);
+  opacity: 0;
+}
+
 .jump-fade-leave-to {
   transform: translateY(20px);
   opacity: 0;

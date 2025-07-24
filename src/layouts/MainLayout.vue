@@ -4,9 +4,9 @@ import SHeader from "@/sections/SHeader.vue";
 </script>
 
 <template>
-  <div>
+  <div class="flex flex-col min-h-[100vh]">
     <SHeader />
-    <main>
+    <main class="flex-grow">
       <slot></slot>
     </main>
     <SFooter />
