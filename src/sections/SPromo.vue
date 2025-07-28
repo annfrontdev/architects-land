@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import MainWrapper from "@/components/MainWrapper.vue";
-import EArrows from "@/elements/EArrows.vue";
 import MainButton from "@/elements/MainButton.vue";
 import SlideChanger from "@/elements/SlideChanger.vue";
 import { computed } from "@vue/reactivity";
@@ -63,15 +62,12 @@ function getHeaderHeight() {
             </Transition>
           </div>
 
-          <EArrows
+          <SlideChanger
+            :index="currentProject.id"
+            :quantity="PROJECTS.length"
             @decrease-index="decreaseIndex"
             @increase-index="increaseIndex"
           />
-
-          <SlideChanger>
-            <template #index>{{ currentProject.id }}</template>
-            <template #quantity>{{ PROJECTS.length }}</template>
-          </SlideChanger>
         </div>
       </div>
 
