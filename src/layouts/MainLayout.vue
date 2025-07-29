@@ -9,6 +9,6 @@ import SHeader from "@/sections/SHeader.vue";
     <main class="flex-grow">
       <slot></slot>
     </main>
-    <!-- <SFooter /> -->
+    <SFooter />
   </div>
 </template>

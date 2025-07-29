@@ -26,14 +26,12 @@ function getHeaderHeight() {
   const header = document.getElementById("header-js");
   return header?.offsetHeight || 0;
 }
-
-const isDesktop = computed(() => window.innerWidth > 1024);
 </script>
 
 <template>
   <section ref="promoRef" :style="styles">
-    <SPromoDesktop v-if="isDesktop" />
-    <SPromoMobile v-else />
+    <SPromoDesktop class="lg:grid hidden" />
+    <SPromoMobile class="block lg:hidden" />
   </section>
 </template>
 

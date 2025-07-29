@@ -11,7 +11,7 @@ const isVisible = ref(false);
 <template>
   <header class="py-8" id="header-js">
     <MainWrapper
-      class="flex lg:grid lg:grid-cols-[400px__max-content] items-center xs:justify-between"
+      class="flex lg:grid lg:grid-cols-[400px__max-content] items-center justify-between lg:justify-start"
     >
       <LogoIcon width="70" id="logo-js" />
 

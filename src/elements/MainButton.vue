@@ -5,9 +5,11 @@ defineProps<{ mode?: "dark" | "light" }>();
 <template>
   <button
     :class="{ 'bg-zinc-800 text-white': mode === 'dark' }"
-    class="shadow-[-1px_1px_1px_white] bg-white px-8 py-2 uppercase flex gap-4 items-center font-thin"
+    class="shadow-[-1px_1px_1px_white] bg-white p-8 uppercase flex gap-4 items-center justify-center font-thin"
   >
-    <slot></slot>
-    <i class="fa-solid fa-arrow-right"></i>
+    <span>
+      <slot></slot>
+      <i class="fa-solid fa-arrow-right mx-2"></i>
+    </span>
   </button>
 </template>

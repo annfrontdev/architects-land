@@ -6,7 +6,7 @@ import MainWrapper from "@/components/MainWrapper.vue";
 
 <template>
   <footer class="bg-zinc-700 text-white">
-    <MainWrapper class="flex gap-30 py-20 justify-center">
+    <MainWrapper class="flex flex-col lg:flex-row gap-15 lg:gap-30 py-20 justify-center">
       <LogoIcon class="text-white shrink-0" width="145" />
 
       <div>

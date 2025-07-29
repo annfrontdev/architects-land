@@ -12,20 +12,18 @@ const projects = [
 </script>
 
 <template>
-  <section id="projects" class="my-40">
+  <section id="projects" class="my-20">
     <MainWrapper class="!px-0">
-      <h2 class="text-5xl text-zinc-400 font-thin mb-16">Наши проекты</h2>
-      <div class="flex flex-wrap gap-7">
-        <img
-          v-for="(p, i) in projects"
-          :key="i"
-          :src="p.link"
-          :alt="p.alt"
-          height="255"
-        />
+      <h2 class="text-5xl text-zinc-400 font-thin mb-16 mx-4">Наши проекты</h2>
+      <div class="lg:flex flex-wrap gap-7">
+        <div v-for="(p, i) in projects" :key="i" class="w-full h-[255px]">
+          <img :src="p.link" :alt="p.alt" class="w-full h-full object-cover" />
+        </div>
       </div>
-      <div class="flex justify-end mt-16">
-        <MainButton mode="dark">Все проекты</MainButton>
+      <div class="flex lg:justify-end lg:mt-16 w-full">
+        <MainButton mode="dark" class="w-full lg:w-auto">
+          Все проекты
+        </MainButton>
       </div>
     </MainWrapper>
   </section>

@@ -3,10 +3,10 @@ import MainWrapper from "@/components/MainWrapper.vue";
 </script>
 
 <template>
-  <section class="my-40">
+  <section class="my-10">
     <MainWrapper>
       <h2 class="text-5xl text-zinc-400 font-thin mb-16">Наш фокус</h2>
-      <div class="grid grid-cols-2 gap-16">
+      <div class="grid lg:grid-cols-2 gap-16">
         <div class="flex gap-4 items-center">
           <p class="text-9xl text-zinc-100 font-extrabold">1</p>
           <p class="text-left font-thin">
