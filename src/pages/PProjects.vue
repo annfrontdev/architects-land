@@ -39,11 +39,11 @@ const currentProjects = computed(() =>
           :text="p.text"
           class="!grid !grid-cols-[60%_40%] group"
         >
-          <div class="overflow-hidden">
+          <div class="overflow-hidden h-full">
             <img
-              :src="p.img"
+              :src="p.photo"
               :alt="p.title"
-              class="group-hover:scale-110 transition-all object-cover h-full w-full"
+              class="group-hover:scale-110 transition-all object-cover w-full h-full"
             />
           </div>
         </CCard>

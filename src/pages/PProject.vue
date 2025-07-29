@@ -11,16 +11,23 @@ const project = PROJECTS.find((v) => `${v.id}` === route.params.id);
 <template>
   <MainLayout>
     <MainWrapper class="my-20">
-      <h2 class="text-5xl text-zinc-400 font-thin mb-16">Проект</h2>
       <div v-if="project">
-        {{ project.img }}
-        <img
-          :src="project.img"
-          :alt="project.title"
-          width="210"
-          height="260"
-          class="hover:scale-110 transsition-all"
-        />
+        <h2 class="text-5xl text-zinc-400 font-thin mb-16">
+          Проект {{ project.title }}
+        </h2>
+        <div class="flex gap-16">
+          <img :src="project.photo" :alt="project.title" />
+
+          <p>{{ project.text }}</p>
+        </div>
+      </div>
+
+      <div v-else class="text-left">
+        <h2 class="text-5xl text-zinc-400 font-thin mb-16">Проект не найден</h2>
+        <RouterLink to="/" class="border border-zinc-400 p-4 py-2 rounded">
+          <i class="fa-solid fa-arrow-left"></i>
+          <span class="ml-2">На главную</span>
+        </RouterLink>
       </div>
     </MainWrapper>
   </MainLayout>

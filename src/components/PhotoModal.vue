@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import CModal from "./CModal.vue";
-import { GALLERY } from "@/model/data";
+import { PROJECTS } from "@/model/data";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import { computed } from "vue";
@@ -14,7 +14,7 @@ const props = defineProps<{
 }>();
 
 const start = computed(() =>
-  GALLERY.findIndex((v) => v.id === props.startPhotoId)
+  PROJECTS.findIndex((v) => v.id === props.startPhotoId)
 );
 </script>
 
@@ -35,7 +35,7 @@ const start = computed(() =>
         :initialSlide="start"
         :loop="true"
       >
-        <SwiperSlide v-for="p in GALLERY" :key="p.id">
+        <SwiperSlide v-for="p in PROJECTS" :key="p.id">
           <div class="h-[100vh] flex justify-center">
             <img
               :srcset="p.full"

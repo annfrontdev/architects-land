@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { GALLERY } from "@/model/data";
+import { PROJECTS } from "@/model/data";
 import { useSlider } from "@/composables/useSlider";
 import { computed } from "vue";
 import SlideChanger from "@/elements/SlideChanger.vue";
@@ -7,7 +7,7 @@ import SlideChanger from "@/elements/SlideChanger.vue";
 const PHOTOS_PER_PAGE = 8;
 const START_ID = 1;
 
-const pagesQuantity = Math.ceil(GALLERY.length / PHOTOS_PER_PAGE);
+const pagesQuantity = Math.ceil(PROJECTS.length / PHOTOS_PER_PAGE);
 
 const { currentIndex, decreaseIndex, increaseIndex } = useSlider(
   pagesQuantity,
@@ -20,7 +20,7 @@ const currentPreviews = computed(() => {
   let res = [];
 
   res = [
-    ...GALLERY.slice(
+    ...PROJECTS.slice(
       PHOTOS_PER_PAGE * (currentIndex.value - 1),
       PHOTOS_PER_PAGE * currentIndex.value
     ),
@@ -34,6 +34,8 @@ const currentPreviews = computed(() => {
         full: "",
         thumb: "",
         altText: "нет фото",
+        title: "",
+        text: "",
       });
     }
   }
