@@ -20,7 +20,7 @@ defineProps<Card>();
         {{ text }}
       </p>
 
-      <MainButton class="w-full lg:w-auto mt-16">
+      <MainButton class="w-full lg:w-auto mt-16" mode="light">
         <span>Перейти</span>
       </MainButton>
     </div>

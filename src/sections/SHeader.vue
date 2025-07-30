@@ -19,7 +19,7 @@ const isVisible = ref(false);
         <i class="fa-solid fa-bars"></i>
       </button>
 
-      <AppNavigation class="lg:flex hidden gap-16" />
+      <AppNavigation class="lg:flex hidden gap-16" :is-header="true" />
     </MainWrapper>
 
     <Transition name="slide-fade">
@@ -31,7 +31,7 @@ const isVisible = ref(false);
             <i class="fa-solid fa-xmark"></i>
           </button>
           <div>
-            <AppNavigation class="grid gap-4" />
+            <AppNavigation class="grid gap-4" :is-header="false" />
           </div>
         </div>
       </CModal>
