@@ -37,7 +37,7 @@ import MainButton from "@/elements/MainButton.vue";
         </form>
 
         <div class="hidden lg:block">
-          <img src="/manager.jpg" alt="Менеджер" class="object-cover h-full" />
+          <img src="/manager.webp" alt="Менеджер" class="object-cover h-full" />
         </div>
       </div>
 

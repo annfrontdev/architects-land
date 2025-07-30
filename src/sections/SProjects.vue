@@ -3,11 +3,11 @@ import MainWrapper from "@/components/MainWrapper.vue";
 import MainButton from "@/elements/MainButton.vue";
 
 const projects = [
-  { alt: "Проект № 6", link: "project-6.jpg" },
-  { alt: "Проект № 7", link: "project-7.jpg" },
-  { alt: "Проект № 8", link: "project-8.jpg" },
-  { alt: "Проект № 5", link: "project-5.jpg" },
-  { alt: "Проект № 9", link: "project-9.jpg" },
+  { alt: "Проект № 6", link: "project-6.webp" },
+  { alt: "Проект № 7", link: "project-7.webp" },
+  { alt: "Проект № 8", link: "project-8.webp" },
+  { alt: "Проект № 5", link: "project-5.webp" },
+  { alt: "Проект № 9", link: "project-9.webp" },
 ];
 </script>
 

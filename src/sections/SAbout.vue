@@ -18,21 +18,21 @@ import MainWrapper from "@/components/MainWrapper.vue";
           class="mt-8 grid grid-cols-[max-content_max-content] grid-rows-[max-content_max-content] gap-8"
         >
           <img
-            src="/about-3.jpg"
+            src="/about-3.webp"
             alt="О нас"
             class="col-start-1 col-end-2"
             height="265"
           />
 
           <img
-            src="/about-2.jpg"
+            src="/about-2.webp"
             alt="О нас"
             class="col-start-1 col-end-2"
             height="140"
           />
 
           <img
-            src="/about-1.jpg"
+            src="/about-1.webp"
             alt="О нас"
             class="col-start-2 col-end-3 row-start-1 row-end-3 my-auto"
             height="345"
