@@ -4,7 +4,7 @@ import MainWrapper from "@/components/MainWrapper.vue";
 </script>
 
 <template>
-  <section>
+  <section class="mt-[120px]">
     <MainWrapper>
       <CCard
         title="О нас"
@@ -12,8 +12,11 @@ import MainWrapper from "@/components/MainWrapper.vue";
             деталям. Используя современные технологии и помощь искусственного
             интеллекта, мы создаём проекты, сочетающие эстетику,
             функциональность и инновации."
+        class="pl-[100px]"
       >
-        <div class="mt-8 grid grid-cols-[max-content_max-content] grid-rows-[max-content_max-content] gap-4">
+        <div
+          class="mt-8 grid grid-cols-[max-content_max-content] grid-rows-[max-content_max-content] gap-8"
+        >
           <img
             src="/about-3.jpg"
             alt="О нас"

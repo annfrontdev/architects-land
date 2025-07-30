@@ -41,7 +41,7 @@ const currentProjects = computed(() =>
         >
           <div class="overflow-hidden h-full">
             <img
-              :src="p.photo"
+              :srcset="p.full"
               :alt="p.title"
               class="group-hover:scale-110 transition-all object-cover w-full h-full"
             />

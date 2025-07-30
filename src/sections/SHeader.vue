@@ -19,7 +19,7 @@ const isVisible = ref(false);
         <i class="fa-solid fa-bars"></i>
       </button>
 
-      <AppNavigation class="lg:flex gap-8 hidden" />
+      <AppNavigation class="lg:flex hidden gap-16" />
     </MainWrapper>
 
     <Transition name="slide-fade">

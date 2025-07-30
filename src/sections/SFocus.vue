@@ -3,28 +3,28 @@ import MainWrapper from "@/components/MainWrapper.vue";
 </script>
 
 <template>
-  <section class="my-10">
+  <section class="mt-[150px]">
     <MainWrapper>
-      <h2 class="text-5xl text-zinc-400 font-thin mb-16">Наш фокус</h2>
+      <h2 class="text-6xl text-zinc-400 font-thin">Наш фокус</h2>
       <div class="grid lg:grid-cols-2 gap-16">
         <div class="flex gap-4 items-center">
-          <p class="text-9xl text-zinc-100 font-extrabold">1</p>
-          <p class="text-left font-thin">
-            Соединить людей и творчество ИИ,<br />
-            чтобы создать новые возможности.<br />
-            Соединить людей и творчество ИИ,<br />
-            чтобы создать новые возможности.<br />
-          </p>
+          <p class="text-[200px] text-zinc-100 font-extrabold">1</p>
+          <div class="text-left font-thin flex flex-col gap-2">
+            <p>Соединить людей и творчество ИИ,</p>
+            <p>чтобы создать новые возможности.</p>
+            <p>Соединить людей и творчество ИИ,</p>
+            <p>чтобы создать новые возможности.</p>
+          </div>
         </div>
 
         <div class="flex gap-4 items-center">
-          <p class="text-9xl text-zinc-100 font-extrabold">2</p>
-          <p class="text-left font-thin">
-            Делать проекты качественно,<br />
-            красиво, внимательно к деталям.<br />
-            Делать проекты качественно,<br />
-            красиво, внимательно к деталям.<br />
-          </p>
+          <p class="text-[200px] text-zinc-100 font-extrabold">2</p>
+          <div class="text-left font-thin flex flex-col gap-2">
+            <p>Делать проекты качественно,</p>
+            <p>красиво, внимательно к деталям.</p>
+            <p>Делать проекты качественно,</p>
+            <p>красиво, внимательно к деталям.</p>
+          </div>
         </div>
       </div>
     </MainWrapper>
