@@ -15,7 +15,7 @@ defineProps<Card>();
     <slot></slot>
 
     <div class="py-8 px-4 max-h-[381px] flex flex-col items-start justify-between gap-5">
-      <h2 class="text-6xl text-zinc-400 font-thin">{{ title }}</h2>
+      <h2 class="lg:text-6xl text-4xl  text-zinc-400 font-thin">{{ title }}</h2>
       <p class="max-w-[80%] font-thin">
         {{ text }}
       </p>

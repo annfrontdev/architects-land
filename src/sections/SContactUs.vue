@@ -6,7 +6,7 @@ import MainButton from "@/elements/MainButton.vue";
 <template>
   <section id="contacts" class="mt-[120px]">
     <MainWrapper>
-      <h2 class="text-6xl text-zinc-400 font-thin mb-8">Оставьте заявку</h2>
+      <h2 class="lg:text-6xl text-4xl  text-zinc-400 font-thin mb-8">Оставьте заявку</h2>
       <div class="grid lg:grid-cols-[400px_1fr] gap-8">
         <form class="flex flex-col gap-4 justify-between h-full" ref="formRef">
           <input

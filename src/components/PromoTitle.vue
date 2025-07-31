@@ -7,10 +7,10 @@ defineProps<{ idx: number , title: string, quantity: number }>()
 
 <template>
   <div>
-    <p class="uppercase font-extralight text-6xl mb-2">Project</p>
+    <p class="uppercase font-extralight lg:text-6xl text-4xl  mb-2">Project</p>
 
     <Transition name="jump-fade" mode="out-in">
-      <p :key="idx" class="font-semibold text-6xl mb-16">
+      <p :key="idx" class="font-semibold lg:text-6xl text-4xl  mb-16">
         {{ title }}
       </p>
     </Transition>

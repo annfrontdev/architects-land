@@ -5,7 +5,7 @@ import MainWrapper from "@/components/MainWrapper.vue";
 <template>
   <section class="mt-[150px]">
     <MainWrapper>
-      <h2 class="text-6xl text-zinc-400 font-thin">Наш фокус</h2>
+      <h2 class="lg:text-6xl text-4xl  text-zinc-400 font-thin">Наш фокус</h2>
       <div class="grid lg:grid-cols-2 gap-16">
         <div class="flex gap-4 items-center">
           <p class="text-[200px] text-zinc-100 font-extrabold">1</p>

@@ -10,7 +10,7 @@ const isVisible = ref(false);
   <MainLayout>
     <MainWrapper class="grid lg:grid-cols-[400px__1fr] gap-16 lg:gap-0">
       <div>
-        <h2 class="text-6xl text-zinc-400 font-thin mb-16">Контакты</h2>
+        <h2 class="lg:text-6xl text-4xl  text-zinc-400 font-thin mb-16">Контакты</h2>
         <ContactsList class="justify-center text-2xl gap-8 font-thin" />
       </div>
 
