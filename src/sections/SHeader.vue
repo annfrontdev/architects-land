@@ -9,17 +9,19 @@ const isVisible = ref(false);
 </script>
 
 <template>
-  <header class="py-8" id="header-js">
+  <header id="header-js">
     <MainWrapper
-      class="flex lg:grid lg:grid-cols-[400px__max-content] items-center justify-between lg:justify-start"
+      class="flex xl:grid xl:grid-cols-[400px__max-content] items-center justify-between xl:justify-start py-4 lg:py-8"
     >
-      <LogoIcon width="70" id="logo-js" />
+      <RouterLink to="/">
+        <LogoIcon width="70" id="logo-js" />
+      </RouterLink>
 
-      <button @click="isVisible = !isVisible" class="lg:hidden">
+      <button @click="isVisible = !isVisible" class="xl:hidden">
         <i class="fa-solid fa-bars"></i>
       </button>
 
-      <AppNavigation class="lg:flex hidden gap-16" :is-header="true" />
+      <AppNavigation class="xl:flex hidden gap-16" :is-header="true" />
     </MainWrapper>
 
     <Transition name="slide-fade">

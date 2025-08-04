@@ -34,23 +34,3 @@ function getHeaderHeight() {
     <SPromoMobile class="block lg:hidden" />
   </section>
 </template>
-
-<style lang="css">
-.jump-fade-enter-active {
-  transition: all 0.2s ease-out;
-}
-
-.jump-fade-leave-active {
-  transition: all 0.5s cubic-bezier(1, 0.5, 0.8, 1);
-}
-
-.jump-fade-enter-from {
-  transform: translateY(-20px);
-  opacity: 0;
-}
-
-.jump-fade-leave-to {
-  transform: translateY(20px);
-  opacity: 0;
-}
-</style>

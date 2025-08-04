@@ -30,10 +30,18 @@ import ContactsList from "@/elements/ContactsList.vue";
             <p class="mb-8 font-semibold">Соц сети</p>
             <ul class="flex gap-4">
               <li>
-                <i class="fa-brands fa-vk text-2xl"></i>
+                <a
+                  class="hover:text-zinc-400 transition-all ease-in duration-100 cursor-pointer"
+                >
+                  <i class="fa-brands fa-vk text-2xl"></i
+                ></a>
               </li>
               <li>
-                <i class="fa-brands fa-telegram text-2xl"></i>
+                <a
+                  class="hover:text-zinc-400 transition-all ease-in duration-100 cursor-pointer"
+                >
+                  <i class="fa-brands fa-telegram text-2xl"></i>
+                </a>
               </li>
             </ul>
           </div>

@@ -12,7 +12,7 @@ const projects = [
 </script>
 
 <template>
-  <section id="projects" class="mt-8">
+ <section class="mt-[150px]">
     <MainWrapper class="!px-0">
       <h2 class="lg:text-6xl text-4xl  text-zinc-400 font-thin mb-16 mx-4">Наши проекты</h2>
       <div class="lg:flex flex-wrap gap-7">

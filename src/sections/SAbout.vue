@@ -12,10 +12,10 @@ import MainWrapper from "@/components/MainWrapper.vue";
             деталям. Используя современные технологии и помощь искусственного
             интеллекта, мы создаём проекты, сочетающие эстетику,
             функциональность и инновации."
-        class="pl-[100px]"
+        class="lg:pl-[100px]"
       >
         <div
-          class="mt-8 grid grid-cols-[max-content_max-content] grid-rows-[max-content_max-content] gap-8"
+          class="hidden mt-8 lg:grid grid-cols-[max-content_max-content] grid-rows-[max-content_max-content] gap-8"
         >
           <img
             src="/about-3.webp"

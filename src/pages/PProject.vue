@@ -10,13 +10,13 @@ const project = PROJECTS.find((v) => `${v.id}` === route.params.id);
 
 <template>
   <MainLayout>
-    <MainWrapper class="my-20">
+    <MainWrapper>
       <div v-if="project">
         <h2 class="text-5xl text-zinc-400 font-thin mb-16">
           Проект {{ project.title }}
         </h2>
         <div class="flex gap-16">
-          <img :src="project.photo" :alt="project.title" />
+          <img :src="project.full" :alt="project.title" />
 
           <p>{{ project.text }}</p>
         </div>

@@ -26,34 +26,38 @@ const currentProjects = computed(() =>
 
 <template>
   <MainLayout>
-    <MainWrapper class="my-20">
+    <MainWrapper>
       <h2 class="text-5xl text-zinc-400 font-thin mb-16">Наши проекты</h2>
 
-      <RouterLink
-        v-for="p in currentProjects"
-        :key="p.id"
-        :to="`/project/${p.id}`"
-      >
-        <CCard
-          :title="p.title"
-          :text="p.text"
-          class="!grid !grid-cols-[60%_40%] group"
+      <div class="gap-8 flex flex-col">
+        <RouterLink
+          v-for="p in currentProjects"
+          :key="p.id"
+          :to="`/project/${p.id}`"
+          class="overflow-hidden group flex  lg:max-h-[300px]"
         >
-          <div class="overflow-hidden h-full">
-            <img
-              :srcset="p.full"
-              :alt="p.title"
-              class="group-hover:scale-110 transition-all object-cover w-full h-full"
-            />
-          </div>
-        </CCard>
-      </RouterLink>
+          <CCard
+            :title="p.title"
+            :text="p.text"
+            class="flex flex-col lg:!grid !grid-cols-[60%_40%]"
+          >
+            <div class="overflow-hidden max-h-[200px] lg:max-h-none">
+              <img
+                :srcset="p.thumb"
+                :alt="p.title"
+                class="group-hover:scale-110 transition-all object-cover h-full w-full"
+              />
+            </div>
+          </CCard>
+        </RouterLink>
+      </div>
 
       <SlideChanger
         @decrease-index="decreaseIndex"
         @increase-index="increaseIndex"
         :index="currentIndex"
         :quantity="pagesQuantity"
+        class="mt-16"
       />
     </MainWrapper>
   </MainLayout>

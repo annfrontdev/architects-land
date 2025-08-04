@@ -2,12 +2,9 @@
 import CModal from "./CModal.vue";
 import { PROJECTS } from "@/model/data";
 import { Swiper, SwiperSlide } from "swiper/vue";
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import { computed } from "vue";
 
 import "swiper/css";
-
-const modules = [Navigation, Pagination, Scrollbar, A11y];
 
 const props = defineProps<{
   startPhotoId: number;
@@ -23,7 +20,7 @@ const start = computed(() =>
     <div class="bg-zinc-800 h-full">
       <button
         @click="$emit('close')"
-        class="text-xl text-white font-thin p-4 self-start absolute z-10 top-4 left-4"
+        class="text-xl text-white font-thin p-1 lg:p-4 self-start absolute z-10 top-1 left-1 lg:top-4 lg:left-4"
       >
         <i class="fa-solid fa-arrow-left"></i>
         <span class="ml-2">В галерею</span>
@@ -31,7 +28,6 @@ const start = computed(() =>
 
       <Swiper
         :slides-per-view="1"
-        :modules="modules"
         :initialSlide="start"
         :loop="true"
       >

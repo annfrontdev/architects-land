@@ -4,7 +4,7 @@ defineProps<{ mode?: "dark" | "light" }>();
 
 <template>
   <button
-    class="py-5 px-10 uppercase flex gap-4 items-center justify-center font-thin transition-all ease-in duration-200 cursor-pointer"
+    class="py-2 px-4 uppercase flex gap-4 items-center justify-center font-thin transition-all ease-in duration-200 cursor-pointer"
     :class="{
       'bg-zinc-800 text-white hover:bg-zinc-800/50 hover:text-white':
         mode === 'dark',

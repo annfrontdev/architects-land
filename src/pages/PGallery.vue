@@ -11,16 +11,18 @@ const startPhotoId = ref(-1);
 
 <template>
   <MainLayout>
-    <MainWrapper class="my-20">
-      <h2 class="text-5xl text-zinc-400 font-thin mb-16">Галерея</h2>
+    <MainWrapper>
+      <h2 class="text-5xl text-zinc-400 font-thin mb-4 lg:mb-16">Галерея</h2>
       <PhotoPreviews @changeStartPhotoId="startPhotoId = $event" />
     </MainWrapper>
 
-    <PhotoModal
-      v-if="startPhotoId >= 0"
-      @close="startPhotoId = -1"
-      :startPhotoId="startPhotoId"
-    />
+    <Transition name="slide-down">
+      <PhotoModal
+        v-if="startPhotoId >= 0"
+        @close="startPhotoId = -1"
+        :startPhotoId="startPhotoId"
+      />
+    </Transition>
   </MainLayout>
 </template>
 

@@ -21,8 +21,11 @@ const route = useRoute();
       v-for="link in appNav"
       :key="link.id"
       :class="{
-        'border-t-[1px] border-b-[1px]': route.path === link.link && isHeader,
+        'border-t-[1px] border-b-[1px] ': route.path === link.link && isHeader,
+        'hover:border-b hover:text-zinc-400': isHeader,
+        'hover:text-zinc-400 ': !isHeader,
       }"
+      class="transition-all ease-in duration-100"
     >
       <RouterLink :to="link.link">{{ link.label }}</RouterLink>
     </li>

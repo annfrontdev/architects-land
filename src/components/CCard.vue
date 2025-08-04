@@ -5,22 +5,26 @@ type Card = {
   title: string;
   text: string;
 };
+
 defineProps<Card>();
 </script>
 
 <template>
   <div
-    class="bg-zinc-50 lg:grid lg:grid-cols-[max-content_500px] relative gap-2 lg:max-h-[435px] mx-auto"
+    class="bg-zinc-50 lg:grid lg:grid-cols-[max-content_500px] relative gap-2 mx-auto"
   >
     <slot></slot>
 
-    <div class="py-8 px-4 max-h-[381px] flex flex-col items-start justify-between gap-5">
-      <h2 class="lg:text-6xl text-4xl  text-zinc-400 font-thin">{{ title }}</h2>
-      <p class="max-w-[80%] font-thin">
+    <div class="py-4 px-4 flex flex-col items-start justify-between gap-5">
+      <h2 class="lg:text-6xl text-4xl text-zinc-400 font-thin">{{ title }}</h2>
+      
+      <p
+        class="max-w-[80%] max-h-[90px] font-thin text-sm line-clamp-3"
+      >
         {{ text }}
       </p>
 
-      <MainButton class="w-full lg:w-auto mt-16" mode="light">
+      <MainButton class="w-full lg:w-auto" mode="light">
         <span>Перейти</span>
       </MainButton>
     </div>
