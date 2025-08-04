@@ -1,5 +1,8 @@
 const GALLERY_PATH =
-  window.devicePixelRatio > 1 ? "gallery/retina-photos/" : "gallery/photos/";
+  import.meta.env.BASE_URL +
+  `${
+    window.devicePixelRatio > 1 ? "gallery/retina-photos/" : "gallery/photos/"
+  }`;
 
 export const PROJECTS = [
   {
@@ -69,3 +72,11 @@ export const PROJECTS = [
 ];
 
 export const PROJECTS_PROMO = [PROJECTS[4], PROJECTS[5], PROJECTS[7]];
+
+export const PROJECTS_GRID = [
+  PROJECTS[4],
+  PROJECTS[5],
+  PROJECTS[7],
+  PROJECTS[0],
+  PROJECTS[1],
+];

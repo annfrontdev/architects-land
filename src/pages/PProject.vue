@@ -16,7 +16,16 @@ const project = PROJECTS.find((v) => `${v.id}` === route.params.id);
           Проект {{ project.title }}
         </h2>
         <div class="flex gap-16">
-          <img :src="project.full" :alt="project.title" />
+          <img
+            :srcset="project.full"
+            :alt="project.altText"
+            sizes="
+                (max-width: 600px) 400px,
+                (max-width: 1200px) 800px,
+                1200px
+              "
+            class="h-[100%] object-contain max-w-[300px]"
+          />
 
           <p>{{ project.text }}</p>
         </div>

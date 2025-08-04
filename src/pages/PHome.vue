@@ -5,6 +5,7 @@ import SFocus from "@/sections/SFocus.vue";
 import SProjects from "@/sections/SProjects.vue";
 import SContactUs from "@/sections/SContactUs.vue";
 import MainLayout from "@/layouts/MainLayout.vue";
+import ModalPrivacy from "@/components/ModalPrivacy.vue";
 </script>
 
 <template>
@@ -14,5 +15,6 @@ import MainLayout from "@/layouts/MainLayout.vue";
     <SFocus />
     <SProjects />
     <SContactUs />
+    <ModalPrivacy />
   </MainLayout>
 </template>
