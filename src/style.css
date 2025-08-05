@@ -1,5 +1,21 @@
 @import "tailwindcss";
-@import '@fortawesome/fontawesome-free/css/all.min.css';
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+
+@theme {
+  --animate-fade-slide: fade-slide 1s ease-in 1 forwards;
+
+  @keyframes fade-slide {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
 
 .slide-down-enter-active {
   transition: all 0.2s ease-out;
@@ -14,7 +30,6 @@
   transform: translateY(-20px);
   opacity: 0;
 }
-
 
 .slide-fade-enter-active {
   transition: all 0.2s ease-out;
@@ -47,4 +62,3 @@
   transform: translateY(20px);
   opacity: 0;
 }
-

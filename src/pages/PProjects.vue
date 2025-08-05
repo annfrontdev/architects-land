@@ -31,10 +31,11 @@ const currentProjects = computed(() =>
 
       <div class="gap-8 flex flex-col">
         <RouterLink
-          v-for="p in currentProjects"
+          v-for="(p,i) in currentProjects"
           :key="p.id"
           :to="`/project/${p.id}`"
-          class="overflow-hidden group flex  lg:max-h-[300px]"
+          class="overflow-hidden group flex  lg:max-h-[300px] animate-fade-slide opacity-0"
+          :style="{animationDelay: `${i*100}ms`}"
         >
           <CCard
             :title="p.title"

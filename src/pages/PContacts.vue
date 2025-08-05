@@ -14,7 +14,8 @@ const isVisible = ref(false);
         <ContactsList class="justify-center text-2xl gap-8 font-thin" />
       </div>
 
-      <div class="relative">
+          
+      <div class="relative animate-fade-slide opacity-0">
         <iframe
           v-if="isVisible"
           src="https://yandex.ru/map-widget/v1/?um=constructor%3Ab44d8c843d4f05137bec610c63514fe0afb671054ef55d36adb165488950ba82&amp;source=constructor"

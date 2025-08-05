@@ -24,10 +24,11 @@ const currentCertificate = ref<Certificate | null>(null);
 
       <div class="grid grid-cols-2 gap-4">
         <img
-          v-for="c in certificates"
+          v-for="(c,i) in certificates"
           :src="c.img"
           alt="Сертификат"
-          class="w-full h-max-[400px]"
+          class="w-full h-max-[400px] animate-fade-slide opacity-0"
+          :style="{animationDelay: `${i*100}ms`}"
           @click="currentCertificate = c"
         />
       </div>

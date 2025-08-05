@@ -10,16 +10,14 @@ import { usePrivacyStore } from "@/stores/privacy";
 import { storeToRefs } from "pinia";
 
 const { visible } = storeToRefs(usePrivacyStore())
-
-
 </script>
 
 <template>
   <MainLayout>
-    <!-- <SPromo />
+    <SPromo />
     <SAbout />
     <SFocus />
-    <SProjects /> -->
+    <SProjects />
     <SContactUs />
     <ModalPrivacy v-if="visible" />
   </MainLayout>

@@ -31,7 +31,12 @@ const currentPreviews = computed(() => [
         :key="currentIndex"
         class="grid grid-cols-2 gap-2 lg:grid-cols-4 lg:gap-8 justify-center lg:justify-start"
       >
-        <li v-for="p in currentPreviews" :key="p.id" class="overflow-hidden">
+        <li
+          v-for="(p, i) in currentPreviews"
+          :key="p.id"
+          class="overflow-hidden animate-fade-slide opacity-0"
+          :style="{animationDelay: `${i*100}ms`}"
+        >
           <img
             v-if="p.thumb"
             :src="p.thumb"
