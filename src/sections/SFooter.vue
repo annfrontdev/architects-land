@@ -3,6 +3,8 @@ import AppNavigation from "@/components/AppNavigation.vue";
 import LogoIcon from "@/components/icons/LogoIcon.vue";
 import MainWrapper from "@/components/MainWrapper.vue";
 import ContactsList from "@/elements/ContactsList.vue";
+import { usePrivacyStore } from "@/stores/privacy";
+const { openForReading } = usePrivacyStore();
 </script>
 
 <template>
@@ -17,7 +19,12 @@ import ContactsList from "@/elements/ContactsList.vue";
         <div class="w-full flex flex-col lg:flex-row gap-10 justify-between">
           <div>
             <p class="mb-8 font-semibold">Информация</p>
-            <AppNavigation class="grid gap-4" :isHeader="false" />
+            <div class="grid gap-4">
+              <AppNavigation :isHeader="false" class="grid gap-4" />
+              <button @click="openForReading" type="button" class="transition-all ease-in duration-100 hover:text-zinc-400 cursor-pointer">
+                Политика конфиденциальности
+              </button>
+            </div>
           </div>
 
           <div class="flex flex-col">

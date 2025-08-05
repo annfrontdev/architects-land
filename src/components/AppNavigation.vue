@@ -23,7 +23,7 @@ const route = useRoute();
       :class="{
         'border-t-[1px] border-b-[1px] ': route.path === link.link && isHeader,
         'hover:border-b hover:text-zinc-400': isHeader,
-        'hover:text-zinc-400 ': !isHeader,
+        'hover:text-zinc-400': !isHeader,
       }"
       class="transition-all ease-in duration-100"
     >
