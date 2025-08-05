@@ -1,49 +1,223 @@
 <script lang="ts" setup>
 import MainWrapper from "@/components/MainWrapper.vue";
+import { reactive, watch } from "vue";
+import { isValidPhoneNumber } from "libphonenumber-js";
+import InputWrapper from "@/elements/InputWrapper.vue";
 import MainButton from "@/elements/MainButton.vue";
+import { usePrivacyStore } from "@/stores/privacy";
+import { storeToRefs } from "pinia";
+
+const { isAccepted } = storeToRefs(usePrivacyStore());
+
+const { openForAccepting } = usePrivacyStore();
+
+const data = reactive({
+  email: "",
+  name: "",
+  phone: "",
+  theme: "",
+  message: "",
+  privacy: false,
+});
+
+type Errors = {
+  email: string;
+  name: string;
+  phone: string;
+  theme: string;
+  message: string;
+  privacy: string;
+};
+
+const errors = reactive<Errors>({
+  email: [],
+  name: [],
+  phone: [],
+  theme: [],
+  message: [],
+  privacy: [],
+});
+
+watch(isAccepted, (v) => {
+  data.privacy = v
+})
+
+function onSubmit() {
+  checkName();
+  checkTheme();
+  checkMessage();
+  checkPhone();
+  checkPrivacy();
+  checkEmail();
+
+  const result = Object.values(errors).findIndex((v) => v.length);
+
+  console.log(result === -1 ? "Отправлены (на самом деле нет)" : "Не отправлены");
+}
+
+function checkName() {
+  if (data.name.length) {
+    errors.name = "";
+    return true;
+  }
+
+  errors.name = "Поле Ваше имя не может быть пустым";
+  return false;
+}
+
+function checkTheme() {
+  if (data.theme.length) {
+    errors.theme = "";
+    return true;
+  }
+
+  errors.theme = "Поле Тема сообщения не может быть пустым";
+  return false;
+}
+
+function checkMessage() {
+  if (data.message.length) {
+    errors.message = "";
+    return true;
+  }
+
+  errors.message = "Поле Ваше сообщение не может быть пустым";
+  return false;
+}
+
+function checkPhone() {
+  if (data.phone && isValidPhoneNumber(data.phone, "RU")) {
+    errors.phone = "";
+    return true;
+  }
+
+  errors.phone = "Некорректный номер";
+  return false;
+}
+
+function checkPrivacy() {
+  if (data.privacy) {
+    errors.privacy = "";
+    return true;
+  }
+
+  errors.privacy =
+    "Для отправки формы нужно ваше согласие на обработку персональных данных";
+  return false;
+}
+
+function checkEmail() {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (data.email && emailRegex.test(data.email)) {
+    errors.email = "";
+    return true;
+  }
+
+  errors.email = "Некорректная почта";
+  return false;
+}
 </script>
 
 <template>
   <section id="contacts" class="mt-[120px]">
     <MainWrapper>
-      <h2 class="lg:text-6xl text-4xl  text-zinc-400 font-thin mb-8">Оставьте заявку</h2>
+      <h2 class="lg:text-6xl text-4xl text-zinc-400 font-thin mb-8">
+        Оставьте заявку
+      </h2>
       <div class="grid lg:grid-cols-[400px_1fr] gap-8">
-        <form class="flex flex-col gap-4 justify-between h-full" ref="formRef">
-          <input
-            type="text"
-            placeholder="Ваше имя"
-            class="font-thin bg-zinc-100 min-h-[46px] px-5 py-3"
-          />
-          <input
-            type="text"
-            placeholder="Ваша почта"
-            class="font-thin bg-zinc-100 min-h-[46px] px-5 py-3"
-          />
-          <input
-            type="text"
-            placeholder="Ваш номер телефона"
-            class="font-thin bg-zinc-100 min-h-[46px] px-5 py-3"
-          />
-          <input
-            type="text"
-            placeholder="Чем интересуетесь?"
-            class="font-thin bg-zinc-100 min-h-[46px] px-5 py-3"
-          />
-          <textarea
-            class="font-thin bg-zinc-100 min-h-[46px] px-5 py-3"
-            placeholder="Ваше сообщение"
-            rows="5"
-          ></textarea>
-        </form>
+        <div>
+          <form
+            @submit.prevent="onSubmit"
+            class="flex flex-col gap-4 justify-between h-full"
+            ref="formRef"
+          >
+            <InputWrapper :error="errors.name">
+              <input
+                v-model="data.name"
+                @input="checkName"
+                type="text"
+                placeholder="Ваше имя*"
+                class="font-thin bg-zinc-100 min-h-[46px] px-5 py-3 w-full"
+                :class="{ 'border border-red-500': errors.name.length }"
+              />
+            </InputWrapper>
+
+            <InputWrapper :error="errors.email">
+              <input
+                v-model="data.email"
+                @input="checkEmail"
+                type="email"
+                placeholder="Ваша почта*"
+                class="font-thin bg-zinc-100 min-h-[46px] px-5 py-3 w-full"
+                :class="{ 'border border-red-500': errors.name.length }"
+              />
+            </InputWrapper>
+
+            <InputWrapper :error="errors.phone">
+              <input
+                v-model="data.phone"
+                @input="checkPhone"
+                type="text"
+                placeholder="Ваш номер телефона*"
+                class="font-thin bg-zinc-100 min-h-[46px] px-5 py-3 w-full"
+                :class="{ 'border border-red-500': errors.name.length }"
+              />
+            </InputWrapper>
+
+            <InputWrapper :error="errors.theme">
+              <input
+                v-model="data.theme"
+                @input="checkTheme"
+                type="text"
+                placeholder="Тема сообщения*"
+                class="font-thin bg-zinc-100 min-h-[46px] px-5 py-3 w-full"
+                :class="{ 'border border-red-500': errors.name.length }"
+              />
+            </InputWrapper>
+
+            <InputWrapper :error="errors.message">
+              <textarea
+                v-model="data.message"
+                @input="checkMessage"
+                class="font-thin bg-zinc-100 min-h-[46px] px-5 py-3 w-full"
+                :class="{
+                  'border border-red-500 text-red-50': errors.name.length,
+                }"
+                placeholder="Ваше сообщение*"
+                rows="5"
+              ></textarea>
+            </InputWrapper>
+
+            <InputWrapper :error="errors.privacy">
+              <label>
+                <input
+                  type="checkbox"
+                  v-model="data.privacy"
+                  @change="checkPrivacy"
+                />
+                Я согласен(а) на обработку моих персональных данных*
+              </label>
+            </InputWrapper>
+
+            <button
+              @click="openForAccepting"
+              type="button"
+              class="underline self-start font-semibold text-zinc-400"
+            >
+              Политика конфиденциальности
+            </button>
+
+            <MainButton mode="dark" type="submit">Отправить заявку</MainButton>
+          </form>
+
+          <p class="font-thin pt-4">* - обязательные поля</p>
+        </div>
 
         <div class="hidden lg:block">
           <img src="/manager.webp" alt="Менеджер" class="object-cover h-full" />
         </div>
       </div>
-
-      <MainButton mode="dark" class="mt-8 w-full lg:w-auto">
-        Отправить заявку
-      </MainButton>
     </MainWrapper>
   </section>
 </template>

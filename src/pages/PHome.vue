@@ -6,15 +6,21 @@ import SProjects from "@/sections/SProjects.vue";
 import SContactUs from "@/sections/SContactUs.vue";
 import MainLayout from "@/layouts/MainLayout.vue";
 import ModalPrivacy from "@/components/ModalPrivacy.vue";
+import { usePrivacyStore } from "@/stores/privacy";
+import { storeToRefs } from "pinia";
+
+const { visible } = storeToRefs(usePrivacyStore())
+
+
 </script>
 
 <template>
   <MainLayout>
-    <SPromo />
+    <!-- <SPromo />
     <SAbout />
     <SFocus />
-    <SProjects />
+    <SProjects /> -->
     <SContactUs />
-    <ModalPrivacy />
+    <ModalPrivacy v-if="visible" />
   </MainLayout>
 </template>
