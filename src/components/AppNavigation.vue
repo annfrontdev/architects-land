@@ -8,8 +8,9 @@ const appNav: NavLink[] = [
   { id: 1, label: "Главная", link: "/" },
   { id: 2, label: "Галерея", link: "/gallery" },
   { id: 3, label: "Проекты", link: "/projects" },
-  { id: 4, label: "Сертификаты", link: "/certificates" },
-  { id: 5, label: "Контакты", link: "/contacts" },
+  { id: 4, label: "О нас", link: "/about" },
+  { id: 5, label: "Сертификаты", link: "/certificates" },
+  { id: 6, label: "Контакты", link: "/contacts" },
 ];
 
 const route = useRoute();

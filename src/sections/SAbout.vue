@@ -13,6 +13,7 @@ import MainWrapper from "@/components/MainWrapper.vue";
             интеллекта, мы создаём проекты, сочетающие эстетику,
             функциональность и инновации."
         class="lg:pl-[100px]"
+        link="/about"
       >
         <div
           class="hidden mt-8 lg:grid grid-cols-[max-content_max-content] grid-rows-[max-content_max-content] gap-8"

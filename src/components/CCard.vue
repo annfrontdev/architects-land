@@ -1,9 +1,10 @@
 <script lang="ts" setup>
-import MainButton from "@/elements/MainButton.vue";
+import MainLink from '@/elements/MainLink.vue';
 
 type Card = {
   title: string;
   text: string;
+  link: string;
 };
 
 defineProps<Card>();
@@ -17,16 +18,12 @@ defineProps<Card>();
 
     <div class="py-4 px-4 flex flex-col items-start justify-between gap-5">
       <h2 class="lg:text-6xl text-4xl text-zinc-400 font-thin">{{ title }}</h2>
-      
-      <p
-        class="max-w-[80%] max-h-[90px] font-thin text-sm line-clamp-3"
-      >
+
+      <p class="max-w-[80%] max-h-[90px] font-thin text-sm line-clamp-3">
         {{ text }}
       </p>
 
-      <MainButton class="w-full lg:w-auto" mode="light">
-        <span>Перейти</span>
-      </MainButton>
+      <MainLink :to="link" mode="light">Перейти</MainLink>
     </div>
   </div>
 </template>

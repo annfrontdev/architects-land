@@ -1,3 +1,4 @@
+import PAboutUs from "@/pages/PAboutUs.vue";
 import PCertificates from "@/pages/PCertificates.vue";
 import PContacts from "@/pages/PContacts.vue";
 import PGallery from "@/pages/PGallery.vue";
@@ -13,6 +14,7 @@ const routes = [
   { path: "/project/:id", component: PProject },
   { path: "/certificates", component: PCertificates },
   { path: "/contacts", component: PContacts },
+  { path: "/about", component: PAboutUs },
 ];
 
 export const router = createRouter({
