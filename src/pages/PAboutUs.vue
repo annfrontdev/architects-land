@@ -36,7 +36,7 @@ const reviews = [
 
 <template>
   <MainLayout>
-    <MainWrapper class="grid gap-16">
+    <MainWrapper class="grid gap-16 font-thin">
       <div class="grid lg:grid-cols-[400px__1fr] gap-4 lg:gap-0">
         <h2 class="lg:text-2xl text-4xl text-zinc-400 font-thin mb-4 lg:mb-16">
           О нас

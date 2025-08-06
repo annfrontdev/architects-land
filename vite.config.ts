@@ -5,7 +5,7 @@ import path from "path";
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [vue(), tailwindcss()],
+  plugins: [vue(), tailwindcss(), require("@tailwindcss/typography")],
   base: "/architects-land/",
   resolve: {
     alias: {

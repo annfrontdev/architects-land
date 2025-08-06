@@ -11,7 +11,7 @@ const routes = [
   { path: "/", component: PHome },
   { path: "/gallery", component: PGallery },
   { path: "/projects", component: PProjects },
-  { path: "/project/:id", component: PProject },
+  { path: "/project/:slug", component: PProject },
   { path: "/certificates", component: PCertificates },
   { path: "/contacts", component: PContacts },
   { path: "/about", component: PAboutUs },

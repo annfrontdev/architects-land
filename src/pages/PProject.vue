@@ -1,43 +1,40 @@
 <script lang="ts" setup>
 import MainWrapper from "@/components/MainWrapper.vue";
 import MainLayout from "@/layouts/MainLayout.vue";
-import { PROJECTS } from "@/model/data";
+import { marked } from "marked";
+import { onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
 
 const route = useRoute();
-const project = PROJECTS.find((v) => `${v.id}` === route.params.id);
+const htmlContent = ref("");
+
+async function fetchProject(slug: string) {
+  try {
+    const res = await fetch(import.meta.env.BASE_URL + `/content/${slug}.md`);
+    const md = await res.text();
+    return marked(md);
+  } catch (e) {
+    return "";
+  }
+}
+
+onMounted(async () => {
+  const slugParam = route.params.slug;
+  const slug = Array.isArray(slugParam) ? slugParam[0] : slugParam;
+
+  if (!slug) return;
+
+  htmlContent.value = await fetchProject(slug);
+});
 </script>
 
 <template>
   <MainLayout>
     <MainWrapper>
-      <div v-if="project">
-        <h2 class="text-5xl text-zinc-400 font-thin mb-16">
-          Проект {{ project.title }}
-        </h2>
-        <div class="flex gap-16">
-          <img
-            :srcset="project.full"
-            :alt="project.altText"
-            sizes="
-                (max-width: 600px) 400px,
-                (max-width: 1200px) 800px,
-                1200px
-              "
-            class="h-[100%] object-contain max-w-[300px]"
-          />
-
-          <p>{{ project.text }}</p>
-        </div>
+      <div v-if="htmlContent">
+        <div v-html="htmlContent" class="prose font-thin max-w-none"></div>
       </div>
-
-      <div v-else class="text-left">
-        <h2 class="text-5xl text-zinc-400 font-thin mb-16">Проект не найден</h2>
-        <RouterLink to="/" class="border border-zinc-400 p-4 py-2 rounded">
-          <i class="fa-solid fa-arrow-left"></i>
-          <span class="ml-2">На главную</span>
-        </RouterLink>
-      </div>
+      <div v-else>Проект не найден</div>
     </MainWrapper>
   </MainLayout>
 </template>

@@ -31,16 +31,17 @@ const currentProjects = computed(() =>
 
       <div class="gap-8 flex flex-col">
         <RouterLink
-          v-for="(p,i) in currentProjects"
+          v-for="(p, i) in currentProjects"
           :key="p.id"
-          :to="`/project/${p.id}`"
-          class="overflow-hidden group flex  lg:max-h-[300px] animate-fade-slide opacity-0"
-          :style="{animationDelay: `${i*100}ms`}"
+          :to="`/project/${p.slug}`"
+          class="overflow-hidden group flex lg:max-h-[300px] animate-fade-slide opacity-0 "
+          :style="{ animationDelay: `${i * 100}ms` }"
         >
           <CCard
             :title="p.title"
             :text="p.text"
-            class="flex flex-col lg:!grid !grid-cols-[60%_40%]"
+            :link="`/project/${p.slug}`"
+            class="flex flex-col lg:!grid !grid-cols-[60%_40%] w-full"
           >
             <div class="overflow-hidden max-h-[200px] lg:max-h-none">
               <img

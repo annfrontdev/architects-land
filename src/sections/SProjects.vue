@@ -15,7 +15,7 @@ import { PROJECTS_GRID } from "@/model/data";
       >
         <RouterLink
           v-for="(p, i) in PROJECTS_GRID"
-          :to="p.thumb"
+          :to="`/project/${p.slug}`"
           :key="i"
           class="w-full lg:w-auto"
           :class="{
