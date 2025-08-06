@@ -15,6 +15,23 @@ const employees = [
     info: " Илья — дизайнер интерьеров",
   },
 ];
+
+const reviews = [
+  {
+    id: 1,
+    text: `Работать с вами было легко и приятно! Спасибо за тёплый дом.`,
+    client: " Мария",
+    project: "Дом в Лисьем лесу",
+    date: "24.12.2024",
+  },
+  {
+    id: 2,
+    text: `Нам понравилось внимание к деталям и чёткость исполнения.`,
+    client: " Андрей и Ольга",
+    project: "Кофейня в футуристическом стиле",
+    date: "12.06.2024",
+  },
+];
 </script>
 
 <template>
@@ -33,7 +50,7 @@ const employees = [
             чувствовать себя.
           </p>
           <div class="flex justify-start mt-8">
-            <MainLink to="/projcts" mode="dark">К Проектам</MainLink>
+            <MainLink to="/projects" mode="dark">К Проектам</MainLink>
           </div>
         </div>
       </div>
@@ -48,7 +65,7 @@ const employees = [
             работаем слаженно, потому что ценим доверие и общее видение.
           </p>
 
-          <div class="flex gap-4 my-8">
+          <div class="md:flex gap-4 mt-8">
             <figure
               v-for="employee in employees"
               :key="employee.id"
@@ -82,6 +99,50 @@ const employees = [
           <div class="flex justify-start mt-8">
             <MainLink to="/certificates" mode="dark">К Сертификатам</MainLink>
           </div>
+        </div>
+      </div>
+
+      <div>
+        <h2 class="lg:text-2xl text-4xl text-zinc-400 font-thin mb-4">
+          Отзывы наших клиентов
+        </h2>
+
+        <div class="grid md:grid-cols-3 gap-4">
+          <div v-for="r in reviews" :key="r.id" class="border p-2 rounded">
+            <p class="font-semibold text-xl mb-4">{{ r.client }}</p>
+            <p class="mb-8 italic font-thin">"{{ r.text }}"</p>
+
+            <div class="text-right">
+              <p class="font-thin text-zinc-400">Проект: {{ r.project }}</p>
+              <p class="font-thin text-zinc-400">Дата сдачи: {{ r.date }}</p>
+            </div>
+          </div>
+
+          <div
+            class="bg-zinc-800 text-white p-2 rounded flex flex-col gap-4 justify-between"
+          >
+            <div>
+              <p class="text-4xl">60+</p>
+              <p>отзывов в <span class="italic underline">ВК</span></p>
+            </div>
+            <div>
+              <p class="text-4xl">40+</p>
+              <p>
+                отзывов в <span class="italic underline">Одноклассниках</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p class="italic text-2xl font-thin">
+          У вас есть идея? Давайте обсудим её. <br />
+          Оставьте заявку или напишите нам — мы всегда открыты к новым проектам.
+        </p>
+
+        <div class="flex justify-start mt-8">
+          <MainLink to="/contacts" mode="dark">К контактам</MainLink>
         </div>
       </div>
     </MainWrapper>

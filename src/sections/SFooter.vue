@@ -21,7 +21,7 @@ const { openForReading } = usePrivacyStore();
             <p class="mb-8 font-semibold">Информация</p>
             <div class="grid gap-4">
               <AppNavigation :isHeader="false" class="grid gap-4" />
-              <button @click="openForReading" type="button" class="transition-all ease-in duration-100 hover:text-zinc-400 cursor-pointer">
+              <button @click="openForReading" type="button" class="text-left transition-all ease-in duration-100 hover:text-zinc-400 cursor-pointer">
                 Политика конфиденциальности
               </button>
             </div>
