@@ -4,8 +4,10 @@ import CModal from "./CModal.vue";
 import { usePrivacyStore } from "@/stores/privacy";
 import { storeToRefs } from "pinia";
 
-const { close, acceptPrivacy } = usePrivacyStore();
-const { typeOfDoc } = storeToRefs(usePrivacyStore());
+const store = usePrivacyStore();
+
+const { close, acceptPrivacy } = store;
+const { typeOfDoc } = storeToRefs(store);
 </script>
 
 <template>

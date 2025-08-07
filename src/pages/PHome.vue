@@ -8,8 +8,11 @@ import MainLayout from "@/layouts/MainLayout.vue";
 import ModalPrivacy from "@/components/ModalPrivacy.vue";
 import { usePrivacyStore } from "@/stores/privacy";
 import { storeToRefs } from "pinia";
+import NotificationModal from "@/components/NotificationModal.vue";
+import { useNotificationsStore } from "@/stores/notifications";
 
-const { visible } = storeToRefs(usePrivacyStore())
+const { visible } = storeToRefs(usePrivacyStore());
+const { notificationIsVisible } = storeToRefs(useNotificationsStore());
 </script>
 
 <template>
@@ -20,5 +23,8 @@ const { visible } = storeToRefs(usePrivacyStore())
     <SProjects />
     <SContactUs />
     <ModalPrivacy v-if="visible" />
+    <Transition name="jump-fade">
+      <NotificationModal v-if="notificationIsVisible" />
+    </Transition>
   </MainLayout>
 </template>

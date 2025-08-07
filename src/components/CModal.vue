@@ -1,12 +1,23 @@
 <script lang="ts" setup>
+import { useNotificationsStore } from "@/stores/notifications";
 import { onMounted, onUnmounted } from "vue";
+const { closeNotification } = useNotificationsStore();
+
+function closeModalByKeydown(e: KeyboardEvent) {
+  if (e.key === "Escape") {
+    window.document.body.style.overflow = "auto";
+    closeNotification();
+  }
+}
 
 onMounted(() => {
   window.document.body.style.overflow = "hidden";
+  window.addEventListener("keydown", closeModalByKeydown);
 });
 
 onUnmounted(() => {
   window.document.body.style.overflow = "auto";
+  window.removeEventListener("keydown", closeModalByKeydown);
 });
 </script>
 

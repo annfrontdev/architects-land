@@ -6,10 +6,15 @@ import InputWrapper from "@/elements/InputWrapper.vue";
 import MainButton from "@/elements/MainButton.vue";
 import { usePrivacyStore } from "@/stores/privacy";
 import { storeToRefs } from "pinia";
+import { useNotificationsStore } from "@/stores/notifications";
 
-const { isAccepted } = storeToRefs(usePrivacyStore());
+const { showNotification } = useNotificationsStore();
 
-const { openForAccepting } = usePrivacyStore();
+const store = usePrivacyStore();
+
+const { isAccepted } = storeToRefs(store);
+
+const { openForAccepting } = store;
 
 const data = reactive({
   email: "",
@@ -39,20 +44,20 @@ const errors = reactive<Errors>({
 });
 
 watch(isAccepted, (v) => {
-  data.privacy = v
-})
+  data.privacy = v;
+});
 
 function onSubmit() {
-  checkName();
-  checkTheme();
-  checkMessage();
-  checkPhone();
-  checkPrivacy();
-  checkEmail();
+  // checkName();
+  // checkTheme();
+  // checkMessage();
+  // checkPhone();
+  // checkPrivacy();
+  // checkEmail();
 
   const result = Object.values(errors).findIndex((v) => v.length);
 
-  console.log(result === -1 ? "Отправлены (на самом деле нет)" : "Не отправлены");
+  if (result === -1) sendToGoogleSheet();
 }
 
 function checkName() {
@@ -116,6 +121,40 @@ function checkEmail() {
 
   errors.email = "Некорректная почта";
   return false;
+}
+
+async function sendToGoogleSheet() {
+  const formData = new URLSearchParams();
+  formData.append("name", data.name);
+  formData.append("email", data.email);
+  formData.append("phone", data.phone);
+  formData.append("theme", data.theme);
+  formData.append("message", data.message);
+
+  try {    
+    await fetch(
+      `https://script.google.com/macros/s/${import.meta.env.VITE_GOOGLE_SHEET_ID}/exec`,
+      {
+        body: formData,
+        method: "POST",
+      }
+    );
+
+    showNotification("Ваша заявка успешно отправлена", "success");
+    clearForm()
+  } catch (error) {
+    console.log(error);
+    // showNotification("Ваша заявка не отправлена", "error");
+  }
+}
+
+function clearForm() {
+  data.name = "";
+  data.email = "";
+  data.phone = "";
+  data.theme = "";
+  data.message = "";
+  data.privacy = false;
 }
 </script>
 

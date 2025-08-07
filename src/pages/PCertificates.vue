@@ -22,7 +22,7 @@ const currentCertificate = ref<Certificate | null>(null);
         Сертификаты
       </h2>
 
-      <div class="grid grid-cols-2 gap-4">
+      <div class="grid lg:grid-cols-2 gap-4">
         <img
           v-for="(c,i) in certificates"
           :src="c.img"

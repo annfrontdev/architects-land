@@ -41,7 +41,7 @@ const currentProjects = computed(() =>
             :title="p.title"
             :text="p.text"
             :link="`/project/${p.slug}`"
-            class="flex flex-col lg:!grid !grid-cols-[60%_40%] w-full"
+            class="flex flex-col lg:grid grid-cols-[1fr_1fr] w-full"
           >
             <div class="overflow-hidden max-h-[200px] lg:max-h-none">
               <img

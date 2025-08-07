@@ -12,7 +12,7 @@ defineProps<Card>();
 
 <template>
   <div
-    class="bg-zinc-50 lg:grid lg:grid-cols-[max-content_500px] relative gap-2 mx-auto"
+    class="bg-zinc-50 relative gap-2 mx-auto"
   >
     <slot></slot>
 
