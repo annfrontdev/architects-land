@@ -2,8 +2,8 @@
   "files": [],
   "include": ["./typed-router.d.ts"],
   "compilerOptions": {
-    "moduleResolution": "Bundler",
-     "types": ["unplugin-vue-router/client"],
+    "composite": true,
+    "types": ["unplugin-vue-router/client"]
   },
   "references": [
     { "path": "./tsconfig.app.json" },
