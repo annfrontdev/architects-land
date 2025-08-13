@@ -33,14 +33,14 @@ const currentProjects = computed(() =>
         <RouterLink
           v-for="(p, i) in currentProjects"
           :key="p.id"
-          :to="`/project/${p.slug}`"
+          :to="`/projects/${p.slug}`"
           class="overflow-hidden group flex lg:max-h-[300px] animate-fade-slide opacity-0 "
           :style="{ animationDelay: `${i * 100}ms` }"
         >
           <CCard
             :title="p.title"
             :text="p.text"
-            :link="`/project/${p.slug}`"
+            :link="`/projects/${p.slug}`"
             class="flex flex-col lg:grid grid-cols-[1fr_1fr] w-full"
           >
             <div class="overflow-hidden max-h-[200px] lg:max-h-none">

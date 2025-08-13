@@ -1,16 +1,18 @@
 <script lang="ts" setup>
 import MainWrapper from "@/components/MainWrapper.vue";
+import MainLink from "@/elements/MainLink.vue";
 import MainLayout from "@/layouts/MainLayout.vue";
 import { marked } from "marked";
 import { onMounted, ref } from "vue";
-import { useRoute } from "vue-router";
 
-const route = useRoute();
 const htmlContent = ref("");
 
-async function fetchProject(slug: string) {
+async function fetchProject() {
   try {
-    const res = await fetch(import.meta.env.BASE_URL + `/content/${slug}.md`);
+    //  страницы ссылаются на один и тот же проект ибо это демо проект
+    const res = await fetch(
+      import.meta.env.BASE_URL + `/content/future-house.md`
+    );
     const md = await res.text();
     return marked(md);
   } catch (e) {
@@ -19,18 +21,15 @@ async function fetchProject(slug: string) {
 }
 
 onMounted(async () => {
-  const slugParam = route.params.slug;
-  const slug = Array.isArray(slugParam) ? slugParam[0] : slugParam;
-
-  if (!slug) return;
-
-  htmlContent.value = await fetchProject(slug);
+  htmlContent.value = await fetchProject();
 });
 </script>
 
 <template>
   <MainLayout>
     <MainWrapper>
+      <MainLink to="/projects" mode="light" direction="left" class="mb-8">К проектам</MainLink>
+
       <div v-if="htmlContent">
         <div v-html="htmlContent" class="prose font-thin max-w-none"></div>
       </div>

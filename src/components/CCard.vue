@@ -23,7 +23,7 @@ defineProps<Card>();
         {{ text }}
       </p>
 
-      <MainLink :to="link" mode="light">Перейти</MainLink>
+      <MainLink :to="link" mode="light" direction="right">Перейти</MainLink>
     </div>
   </div>
 </template>

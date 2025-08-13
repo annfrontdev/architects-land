@@ -50,7 +50,7 @@ const reviews = [
             чувствовать себя.
           </p>
           <div class="flex justify-start mt-8">
-            <MainLink to="/projects" mode="dark">К Проектам</MainLink>
+            <MainLink to="/projects" mode="dark" direction="right">К Проектам</MainLink>
           </div>
         </div>
       </div>
@@ -97,7 +97,7 @@ const reviews = [
           </p>
           <p>Имеем действующие профессиональные сертификаты</p>
           <div class="flex justify-start mt-8">
-            <MainLink to="/certificates" mode="dark">К Сертификатам</MainLink>
+            <MainLink to="/certificates" mode="dark" direction="right">К Сертификатам</MainLink>
           </div>
         </div>
       </div>
@@ -142,7 +142,7 @@ const reviews = [
         </p>
 
         <div class="flex justify-start mt-8">
-          <MainLink to="/contacts" mode="dark">К контактам</MainLink>
+          <MainLink to="/contacts" mode="dark" direction="right">К контактам</MainLink>
         </div>
       </div>
     </MainWrapper>

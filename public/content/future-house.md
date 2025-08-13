@@ -1,6 +1,6 @@
 # Футуристичный дом в сосновом лесу
 
-<div class="flex flex-wrap gap-2 max-w-[410px]">
+<div class="flex flex-wrap gap-2 max-w-[90%]">
     <img src="/architects-land/content/future-house-1.jpg" alt="Тест" class="sm:w-[200px] w-full block !m-0" />
     <img src="/architects-land/content/future-house-2.jpg" alt="Тест" class="sm:w-[200px] w-full block !m-0" />
     <img src="/architects-land/content/future-house-3.jpg" alt="Тест" class="sm:w-[200px] w-full block !m-0" />

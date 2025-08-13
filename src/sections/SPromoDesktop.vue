@@ -20,7 +20,7 @@ const idx = computed(() => {
 const currentProject = computed(() => PROJECTS_PROMO[idx.value - 1]);
 
 const title = computed(() => currentProject.value.title);
-const link = computed(() => `/project/${currentProject.value.id}`);
+const link = computed(() => `/projects/${currentProject.value.id}`);
 </script>
 
 <template>
