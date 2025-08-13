@@ -36,12 +36,12 @@ type Errors = {
 };
 
 const errors = reactive<Errors>({
-  email: [],
-  name: [],
-  phone: [],
-  theme: [],
-  message: [],
-  privacy: [],
+  email: '',
+  name: '',
+  phone: '',
+  theme: '',
+  message: '',
+  privacy: '',
 });
 
 watch(isAccepted, (v) => {
@@ -49,10 +49,10 @@ watch(isAccepted, (v) => {
 });
 
 function onSubmit() {
-  // checkName();
-  // checkTheme();
-  // checkMessage();
-  // checkPrivacy();
+  checkName();
+  checkTheme();
+  checkMessage();
+  checkPrivacy();
 
   // не проверяется ибо это демо-проект
   // checkEmail();

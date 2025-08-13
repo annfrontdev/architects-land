@@ -6,7 +6,9 @@
     "module": "ESNext",
     "skipLibCheck": true,
     "types": ["node"],
-    
+    "composite": true,
+    "emitDeclarationOnly": false,
+
     /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
@@ -22,6 +24,5 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["vite.config.ts"],
-  
+  "include": ["vite.config.ts"]
 }
