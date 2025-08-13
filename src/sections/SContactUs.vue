@@ -51,9 +51,11 @@ function onSubmit() {
   // checkName();
   // checkTheme();
   // checkMessage();
-  // checkPhone();
   // checkPrivacy();
+
+  // не проверяется ибо это демо-проект
   // checkEmail();
+  // checkPhone();
 
   const result = Object.values(errors).findIndex((v) => v.length);
 
@@ -126,14 +128,19 @@ function checkEmail() {
 async function sendToGoogleSheet() {
   const formData = new URLSearchParams();
   formData.append("name", data.name);
-  formData.append("email", data.email);
-  formData.append("phone", data.phone);
+
+  // не отправляется ибо это демо-проект
+  // formData.append("email", data.email);
+  // formData.append("phone", data.phone);
+
   formData.append("theme", data.theme);
   formData.append("message", data.message);
 
-  try {    
+  try {
     await fetch(
-      `https://script.google.com/macros/s/${import.meta.env.VITE_GOOGLE_SHEET_ID}/exec`,
+      `https://script.google.com/macros/s/${
+        import.meta.env.VITE_GOOGLE_SHEET_ID
+      }/exec`,
       {
         body: formData,
         method: "POST",
@@ -141,7 +148,7 @@ async function sendToGoogleSheet() {
     );
 
     showNotification("Ваша заявка успешно отправлена", "success");
-    clearForm()
+    clearForm();
   } catch (error) {
     console.log(error);
     // showNotification("Ваша заявка не отправлена", "error");
@@ -156,6 +163,9 @@ function clearForm() {
   data.message = "";
   data.privacy = false;
 }
+
+// скрыто ибо это демо-проект
+const isVisible = false;
 </script>
 
 <template>
@@ -164,6 +174,13 @@ function clearForm() {
       <h2 class="lg:text-6xl text-4xl text-zinc-400 font-thin mb-8">
         Оставьте заявку
       </h2>
+
+      <p class="border border-orange-500 rounded mb-8 p-2 text-orange-500">
+        ⚠️ Внимание: Данная форма создана для учебных целей в рамках
+        демонстрационного проекта. <br /> Сайт не собирает и не хранит
+        персональные данные пользователей.
+      </p>
+
       <div class="grid lg:grid-cols-[400px_1fr] gap-8">
         <div>
           <form
@@ -182,23 +199,23 @@ function clearForm() {
               />
             </InputWrapper>
 
-            <InputWrapper :error="errors.email">
+            <InputWrapper v-if="isVisible" :error="errors.email">
               <input
                 v-model="data.email"
                 @input="checkEmail"
                 type="email"
-                placeholder="Ваша почта*"
+                placeholder="Ваша почта"
                 class="font-thin bg-zinc-100 min-h-[46px] px-5 py-3 w-full"
                 :class="{ 'border border-red-500': errors.name.length }"
               />
             </InputWrapper>
 
-            <InputWrapper :error="errors.phone">
+            <InputWrapper v-if="isVisible" :error="errors.phone">
               <input
                 v-model="data.phone"
                 @input="checkPhone"
                 type="text"
-                placeholder="Ваш номер телефона*"
+                placeholder="Ваш номер телефона"
                 class="font-thin bg-zinc-100 min-h-[46px] px-5 py-3 w-full"
                 :class="{ 'border border-red-500': errors.name.length }"
               />
@@ -235,7 +252,7 @@ function clearForm() {
                   v-model="data.privacy"
                   @change="checkPrivacy"
                 />
-                Я согласен(а) на обработку моих персональных данных*
+                Я согласен(а) на обработку моих НЕ персональных данных*
               </label>
             </InputWrapper>
 
@@ -244,7 +261,7 @@ function clearForm() {
               type="button"
               class="underline self-start font-semibold text-zinc-400"
             >
-              Политика конфиденциальности
+              Демо-политика конфиденциальности
             </button>
 
             <MainButton mode="dark" type="submit">Отправить заявку</MainButton>
