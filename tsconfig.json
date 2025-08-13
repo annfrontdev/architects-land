@@ -1,6 +1,7 @@
 {
   "files": [],
-  "include": ["./typed-router.d.ts"],
+  "include": ["./typed-router.d.ts",  "src",
+  "src/types"],
   "compilerOptions": {
     "composite": true,
     "types": ["unplugin-vue-router/client"]
