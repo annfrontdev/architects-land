@@ -1,16 +1,8 @@
 {
   "extends": "@vue/tsconfig/tsconfig.dom.json",
   "compilerOptions": {
-    "types": ["node"],
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
-    "baseUrl": ".",
-   "composite": true,
-   "noEmit": false,
 
-    "emitDeclarationOnly": false,
-    "paths": {
-      "@/*": ["src/*"]
-    },
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
@@ -19,10 +11,5 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue",
-    "src/composables/useSlider.ts"
-  ]
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"]
 }
