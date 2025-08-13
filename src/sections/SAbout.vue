@@ -12,28 +12,26 @@ import MainWrapper from "@/components/MainWrapper.vue";
             деталям. Используя современные технологии и помощь искусственного
             интеллекта, мы создаём проекты, сочетающие эстетику,
             функциональность и инновации."
-        class="xl:pl-[100px] block"
         link="/about"
+        class="grid grid-cols-2"
       >
-        <div
-          class="mt-8 mb-16 lg:mb-0 grid grid-cols-[max-content_max-content] grid-rows-[max-content_max-content] gap-8"
-        >
+        <div class="grid grid-cols-[1fr_1fr] gap-2">
           <img
             src="/about-3.webp"
             alt="О нас"
-            class="col-start-1 col-end-2 object-cover"
+            class="col-start-1 col-end-2 object-cover w-full h-full"
           />
 
           <img
             src="/about-2.webp"
             alt="О нас"
-            class="col-start-1 col-end-2 object-cover"
+            class="col-start-1 col-end-2 object-cover w-full h-full"
           />
 
           <img
             src="/about-1.webp"
             alt="О нас"
-            class="col-start-2 col-end-3 row-start-1 row-end-3 my-auto object-cover"
+            class="col-start-2 col-end-3 row-start-1 row-end-3 my-auto object-cover w-full h-full"
           />
         </div>
       </CCard>
