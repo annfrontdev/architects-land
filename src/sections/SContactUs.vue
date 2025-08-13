@@ -7,6 +7,7 @@ import MainButton from "@/elements/MainButton.vue";
 import { usePrivacyStore } from "@/stores/privacy";
 import { storeToRefs } from "pinia";
 import { useNotificationsStore } from "@/stores/notifications";
+import { CONFIG } from "@/shared/config";
 
 const { showNotification } = useNotificationsStore();
 
@@ -125,33 +126,50 @@ function checkEmail() {
   return false;
 }
 
+async function validRecaptcha() {
+  if (window.grecaptcha && window.grecaptcha.ready) {
+    const token = await new Promise<string>((resolve, reject) => {
+      window.grecaptcha.ready(() => {
+        window.grecaptcha
+          .execute(CONFIG.RECAPTCHA_SITE_KEY, { action: "submit" })
+          .then(resolve)
+          .catch(reject);
+      });
+    });
+
+    return token;
+  } else {
+    throw new Error("grecaptcha не загружен");
+  }
+}
+
 async function sendToGoogleSheet() {
   const formData = new URLSearchParams();
+
+  const repactchaRes = await validRecaptcha();
+  
+  formData.append("token", repactchaRes);
   formData.append("name", data.name);
+  formData.append("theme", data.theme);
+  formData.append("message", data.message);
 
   // не отправляется ибо это демо-проект
   // formData.append("email", data.email);
   // formData.append("phone", data.phone);
 
-  formData.append("theme", data.theme);
-  formData.append("message", data.message);
+  const r = await fetch(
+    `https://script.google.com/macros/s/${CONFIG.GOOGLE_SHEET_ID}/exec`,
+    {
+      body: formData,
+      method: "POST",
+    }
+  );
 
-  try {
-    await fetch(
-      `https://script.google.com/macros/s/${
-        import.meta.env.VITE_GOOGLE_SHEET_ID
-      }/exec`,
-      {
-        body: formData,
-        method: "POST",
-      }
-    );
-
+  if (r.ok) {
     showNotification("Ваша заявка успешно отправлена", "success");
     clearForm();
-  } catch (error) {
-    console.log(error);
-    // showNotification("Ваша заявка не отправлена", "error");
+  } else {
+    showNotification("Ваша заявка не отправлена", "error");
   }
 }
 
@@ -177,8 +195,8 @@ const isVisible = false;
 
       <p class="border border-orange-500 rounded mb-8 p-2 text-orange-500">
         ⚠️ Внимание: Данная форма создана для учебных целей в рамках
-        демонстрационного проекта. <br /> Сайт не собирает и не хранит
-        персональные данные пользователей.
+        демонстрационного проекта. <br />
+        Сайт не собирает и не хранит персональные данные пользователей.
       </p>
 
       <div class="grid lg:grid-cols-[400px_1fr] gap-8">
