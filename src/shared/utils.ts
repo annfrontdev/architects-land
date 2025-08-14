@@ -15,7 +15,6 @@ async function fetchMdFile(url: string) {
   const res = await fetch(`${import.meta.env.BASE_URL}${url}`);
   const md = await res.text();
 
-  // Проверка: если пришёл HTML (а не markdown)
   if (md.trim().startsWith("<!doctype html>")) {
     throw new Error("Not a markdown file or file not found");
   }
