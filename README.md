@@ -1,13 +1,13 @@
 # Демо проект многостраничного лендинга
 
-## Технологии
+### Технологии
 
 - Vue/Pinia/Vue router
 - Typescript
 - Vite
 - Tailwind
 
-## Библиотеки
+### Библиотеки
 
 - unplugin-vue-router
 - typography
