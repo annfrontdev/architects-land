@@ -1,0 +1,1 @@
+import{g as l}from"./index-CNOZc-S8.js";const r=1;function v(n,u=0){const e=l(u);function c(){e.value=e.value>u?e.value-r:u}function o(){e.value=e.value<n?e.value+r:n}return{currentIndex:e,decreaseIndex:c,increaseIndex:o}}export{v as u};
