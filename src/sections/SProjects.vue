@@ -5,7 +5,7 @@ import { PROJECTS_GRID } from "@/model/data";
 </script>
 
 <template>
-  <section class="mt-[150px]">
+  <section class="md:mt-[150px] mt-20">
     <MainWrapper>
       <h2 class="lg:text-6xl text-4xl text-zinc-400 font-thin mb-16 mx-4">
         Наши проекты

@@ -8,7 +8,7 @@ const { openForReading } = usePrivacyStore();
 </script>
 
 <template>
-  <footer class="bg-zinc-700 text-white mt-[120px] py-16 w-full">
+  <footer class="bg-zinc-700 text-white md:mt-[120px] mt-20 py-16 w-full">
     <MainWrapper>
       <div class="lg:flex w-full justify-center">
         <LogoIcon

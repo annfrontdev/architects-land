@@ -4,7 +4,7 @@ import MainWrapper from "@/components/MainWrapper.vue";
 </script>
 
 <template>
-  <section class="mt-[120px]">
+  <section class="md:mt-[120px] mt-20">
     <MainWrapper>
       <CCard
         title="О нас"
@@ -13,9 +13,9 @@ import MainWrapper from "@/components/MainWrapper.vue";
             интеллекта, мы создаём проекты, сочетающие эстетику,
             функциональность и инновации."
         link="/about"
-        class="grid grid-cols-2"
+        class="md:grid grid-cols-2"
       >
-        <div class="grid grid-cols-[1fr_1fr] gap-2">
+        <div class="mb-20 md:mb-0 grid grid-cols-[1fr_1fr] gap-2 grid-rows-[50%_50%] h-[250px]">
           <img
             src="/about-3.webp"
             alt="О нас"
@@ -31,7 +31,7 @@ import MainWrapper from "@/components/MainWrapper.vue";
           <img
             src="/about-1.webp"
             alt="О нас"
-            class="col-start-2 col-end-3 row-start-1 row-end-3 my-auto object-cover w-full h-full"
+            class="col-start-2 col-end-3 row-start-1 row-end-3 my-auto object-cover w-full h-full mt-[10%]"
           />
         </div>
       </CCard>

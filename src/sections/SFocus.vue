@@ -3,7 +3,7 @@ import MainWrapper from "@/components/MainWrapper.vue";
 </script>
 
 <template>
-  <section class="mt-[150px]">
+  <section class="md:mt-[150px] mt-20">
     <MainWrapper>
       <h2 class="lg:text-6xl text-4xl  text-zinc-400 font-thin">Наш фокус</h2>
       <div class="grid lg:grid-cols-2 lg:gap-16">
