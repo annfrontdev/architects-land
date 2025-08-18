@@ -9,8 +9,8 @@ type Certificate = {
   alt: string;
 };
 const certificates: Certificate[] = [
-  { img: "certificate-1.png", alt: "Сертификат 1" },
-  { img: "certificate-2.png", alt: "Сертификат 2" },
+  { img: "certificate-1.webp", alt: "Сертификат 1" },
+  { img: "certificate-2.webp", alt: "Сертификат 2" },
 ];
 const currentCertificate = ref<Certificate | null>(null);
 </script>

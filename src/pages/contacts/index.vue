@@ -22,7 +22,7 @@ const isVisible = ref(false);
           class="w-full h-[400px]"
           title="address"
         ></iframe>
-        <img v-else @click="isVisible = true" src="/map.png" alt="map" class="h-[400px] object-cover w-full" />
+        <img v-else @click="isVisible = true" src="/map.webp" alt="map" class="h-[400px] object-cover w-full" />
       </div>
     </MainWrapper>
   </MainLayout>
