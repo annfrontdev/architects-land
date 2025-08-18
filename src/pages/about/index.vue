@@ -6,12 +6,12 @@ import MainLayout from "@/layouts/MainLayout.vue";
 const employees = [
   {
     id: 1,
-    link: "about/photos/employee-1.jpg",
+    link: "about/photos/employee-1.webp",
     info: "Анна — ведущий архитектор",
   },
   {
     id: 2,
-    link: "about/photos/employee-2.jpg",
+    link: "about/photos/employee-2.webp",
     info: " Илья — дизайнер интерьеров",
   },
 ];

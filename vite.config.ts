@@ -6,13 +6,7 @@ import VueRouter from "unplugin-vue-router/vite";
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [
-    VueRouter({
-      /* options */
-    }),
-    vue(),
-    tailwindcss(),
-  ],
+  plugins: [VueRouter({}), vue(), tailwindcss()],
   base: "/architects-land/",
   resolve: {
     alias: {

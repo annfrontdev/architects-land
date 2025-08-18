@@ -1,10 +1,10 @@
 # Футуристичный дом в сосновом лесу
 
 <div class="flex flex-wrap gap-2 max-w-[90%]">
-    <img src="/architects-land/content/future-house-1.jpg" alt="Тест" class="sm:w-[200px] w-full block !m-0" />
-    <img src="/architects-land/content/future-house-2.jpg" alt="Тест" class="sm:w-[200px] w-full block !m-0" />
-    <img src="/architects-land/content/future-house-3.jpg" alt="Тест" class="sm:w-[200px] w-full block !m-0" />
-    <img src="/architects-land/content/future-house-4.jpg" alt="Тест" class="sm:w-[200px] w-full block !m-0" />
+    <img src="/architects-land/content/future-house-1.webp" alt="Тест" class="sm:w-[200px] w-full block !m-0" />
+    <img src="/architects-land/content/future-house-2.webp" alt="Тест" class="sm:w-[200px] w-full block !m-0" />
+    <img src="/architects-land/content/future-house-3.webp" alt="Тест" class="sm:w-[200px] w-full block !m-0" />
+    <img src="/architects-land/content/future-house-4.webp" alt="Тест" class="sm:w-[200px] w-full block !m-0" />
 </div>
 
 Простые формы, чистые линии и тишина — всё, что нужно для настоящего уединения.
