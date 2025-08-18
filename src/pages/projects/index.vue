@@ -48,6 +48,7 @@ const currentProjects = computed(() =>
                 :srcset="p.thumb"
                 :alt="p.title"
                 class="group-hover:scale-110 transition-all object-cover h-full w-full"
+                loading="lazy"
               />
             </div>
           </CCard>

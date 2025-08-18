@@ -19,18 +19,21 @@ import MainWrapper from "@/components/MainWrapper.vue";
           <img
             src="/about-3.webp"
             alt="О нас"
+            loading="lazy"
             class="col-start-1 col-end-2 object-cover w-full h-full"
           />
 
           <img
             src="/about-2.webp"
             alt="О нас"
+            loading="lazy"
             class="col-start-1 col-end-2 object-cover w-full h-full"
           />
 
           <img
             src="/about-1.webp"
             alt="О нас"
+            loading="lazy"
             class="col-start-2 col-end-3 row-start-1 row-end-3 my-auto object-cover w-full h-full mt-[10%]"
           />
         </div>

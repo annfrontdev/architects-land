@@ -76,6 +76,7 @@ const reviews = [
                 :alt="employee.info"
                 class="object-cover"
                 width="200"
+                loading="lazy"
               />
               <figcaption class="font-thin">
                 {{ employee.info }}

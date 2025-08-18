@@ -43,6 +43,7 @@ const currentPreviews = computed(() => [
             :alt="p.altText"
             class="hover:scale-110 transition-all h-[260px] w-full object-cover"
             @click="$emit('changeStartPhotoId', p.id)"
+            loading="lazy"
           />
         </li>
       </ul>

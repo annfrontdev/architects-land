@@ -30,6 +30,7 @@ const currentCertificate = ref<Certificate | null>(null);
           class="w-full h-max-[400px] animate-fade-slide opacity-0"
           :style="{animationDelay: `${i*100}ms`}"
           @click="currentCertificate = c"
+          loading="lazy"
         />
       </div>
 
@@ -50,6 +51,7 @@ const currentCertificate = ref<Certificate | null>(null);
             :src="currentCertificate.img"
             alt="certificate"
             class="w-full m-auto z-10 relative"
+            loading="lazy"
           />
         </CModal>
       </Transition>

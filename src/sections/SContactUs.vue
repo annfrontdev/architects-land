@@ -289,7 +289,7 @@ const isVisible = false;
         </div>
 
         <div class="hidden lg:block">
-          <img src="/manager.webp" alt="Менеджер" class="object-cover h-full" />
+          <img src="/manager.webp" alt="Менеджер" class="object-cover h-full" loading="lazy" />
         </div>
       </div>
     </MainWrapper>

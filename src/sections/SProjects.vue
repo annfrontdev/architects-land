@@ -26,7 +26,7 @@ import { PROJECTS_GRID } from "@/model/data";
             'col-start-4 col-end-5 row-start-2 row-end-3': i === 4,
           }"
         >
-          <img :src="p.thumb" :alt="p.altText" class="w-full h-full object-cover" />
+          <img :src="p.thumb" :alt="p.altText" class="w-full h-full object-cover" loading="lazy" />
         </RouterLink>
       </div>
       <div class="flex lg:justify-end lg:mt-8 w-full">

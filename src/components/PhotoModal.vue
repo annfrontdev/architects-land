@@ -39,6 +39,7 @@ const start = computed(() =>
               sizes="(width <= 600px) 400px,
           (width <= 1200px) 800px, 1200px"
               class="h-[100%] object-contain"
+              loading="lazy"
             />
           </div>
         </SwiperSlide>
